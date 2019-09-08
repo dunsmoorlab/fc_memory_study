@@ -7,7 +7,7 @@
     - The CS+ proactive memory enhancement for extinction memories is __weaker__ in PTSD.
 * HOWEVER, there is neither a main effect nor interaction of `Group`
 
-![img](./graphing/behavior/group_mem_final.png)
+![img](https://github.com/dunsmoorlab/fc_memory_study/blob/master/graphing/behavior/group_mem_final.PNG)
 
 #### Behavioral reseults concerns
 - Memory effects were strongest when considering only _high confidence_ corrected recognition
