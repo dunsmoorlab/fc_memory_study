@@ -27,7 +27,10 @@ Based on the behavior alone, we can predict:
 2. PTSD will have higher neural similarity between baseline and conditioning CS+ items compares to controls
 3. Examining CS+ vs. CS- neural similarity will reveal an interaction of `Encoding Phase` and `Group` in regions important for encoding & retrieval of associative conditioning/extinction memories, as well as in sensory cortex (category learning generalization)
 
-## Analyses
+## Univariate Analyses
+[Here is Emily's univariate analysis plan](univariate_plan.md)
+
+## Multivariate Analyses
 1. measure representational change of the CS+/CS-. The behavior this neural analysis is based on is the success of the category conditioning paradigm.
     - replicating seperation in animal/tool cortex would be a good place to start
         + use localizer category vs. scrambled images to identify category cortex
