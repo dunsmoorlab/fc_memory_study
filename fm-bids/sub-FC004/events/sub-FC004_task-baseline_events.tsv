@@ -1,0 +1,49 @@
+onset	duration	trial_type	stimulus	response	response_time	recognition_memory
+4.033	4.5	CS-	animals/cow.jpg		0.0	MN
+13.6	5.0	CS+	tools/hairdryer.jpg	2.0	1.139	DO
+24.666999999999998	4.5	CS-	animals/baboon.jpg		0.0	DO
+36.25	4.0	CS-	animals/giraffe.jpg		0.0	DO
+47.317	4.0	CS+	tools/rake.jpg	2.0	0.9990000000000001	DO
+57.383	4.0	CS+	tools/faxmachine.jpg	2.0	1.663	DN
+67.45	5.0	CS-	animals/pike.jpg		0.0	MN
+77.517	5.0	CS+	tools/wheelbarrow.jpg	2.0	1.194	DO
+89.583	4.5	CS+	tools/beadingtool.jpg	2.0	1.8630000000000002	DO
+99.15	5.0	CS-	animals/angelfish.jpg		0.0	DO
+109.21600000000001	4.5	CS-	animals/leopard.jpg		0.0	MN
+118.78299999999999	4.0	CS+	tools/plunger.jpg	2.0	1.13	DO
+128.85	4.5	CS-	animals/boar.jpg		0.0	MO
+139.417	4.5	CS+	tools/cheesegrater.jpg	2.0	1.069	DO
+148.983	4.5	CS-	animals/porcupine.jpg		0.0	DO
+160.55	5.0	CS+	tools/stove.jpg	2.0	1.0959999999999999	MN
+171.61599999999999	4.5	CS+	tools/gong.jpg	2.0	1.1420000000000001	DO
+182.183	4.0	CS-	animals/flea.jpg		0.0	DO
+193.25	4.0	CS+	tools/ropeandpulley.jpg	2.0	1.01	DO
+202.31599999999997	4.5	CS-	animals/caterpillarpeacockmoth.jpg		0.0	DO
+211.88299999999998	4.5	CS+	tools/electricbreaker.jpg	2.0	1.0959999999999999	MN
+221.45	4.0	CS-	animals/herculesbeetle.jpg		0.0	DO
+230.516	5.0	CS-	animals/mole.jpg		0.0	DO
+240.583	5.0	CS+	tools/ladder.jpg	2.0	1.2109999999999999	DN
+250.65	4.5	CS+	tools/transmissionwrench.jpg	2.0	2.135	MN
+260.217	5.0	CS-	animals/pigeon.jpg		0.0	DO
+272.283	4.5	CS+	tools/gardenhose.jpg	2.0	1.2	DO
+283.85	4.0	CS+	tools/paintroller.jpg	2.0	1.11	MO
+292.91700000000003	4.0	CS-	animals/prayingmantis.jpg		0.0	DO
+302.983	5.0	CS-	animals/tiger.jpg		0.0	MN
+315.05	5.0	CS+	tools/scissors.jpg	2.0	1.3519999999999999	MN
+327.117	4.0	CS-	animals/hummingbird.jpg		0.0	DO
+338.18300000000005	4.0	CS+	tools/drillbit.jpg	2.0	1.126	DO
+348.25	5.0	CS-	animals/waterbuffalo.jpg		0.0	MN
+360.31699999999995	5.0	CS+	tools/rollingpin.jpg	2.0	1.18	MO
+372.38300000000004	4.0	CS-	animals/quail.jpg		0.0	MO
+382.45	4.0	CS-	animals/gerbil.jpg		0.0	DO
+392.517	4.0	CS+	tools/plow.jpg	2.0	1.3019999999999998	DO
+401.583	5.0	CS+	tools/reflexhammer.jpg	2.0	1.319	DO
+413.65	4.5	CS-	animals/dragonfly.jpg		0.0	DO
+425.217	5.0	CS-	animals/pelican.jpg		0.0	MO
+436.283	4.0	CS+	tools/shoehorn.jpg	2.0	1.4280000000000002	DO
+446.36699999999996	4.0	CS-	animals/crow.jpg		0.0	MO
+456.43300000000005	5.0	CS+	tools/pliers.jpg	2.0	1.354	MO
+466.5	4.5	CS-	animals/ostrich.jpg		0.0	DO
+478.06699999999995	4.5	CS+	tools/chisel.jpg	2.0	1.275	DO
+488.63300000000004	5.0	CS-	animals/snapper.jpg		0.0	DO
+499.7	4.5	CS+	tools/weldinghelmet.jpg	2.0	1.0270000000000001	DO

@@ -1,0 +1,49 @@
+onset	duration	trial_type	stimulus	response	response_time	recognition_memory
+4.016	4.0	CS+	animals/marmot.jpg	2.0	2.195	DO
+14.8	4.5	CS-	tools/blower.jpg	2.0	1.3219999999999998	MO
+24.15	4.5	CS+	animals/reindeer.jpg	2.0	1.692	DN
+33.5	4.5	CS+	animals/elephantafrican.jpg	2.0	1.2229999999999999	DO
+44.8	4.5	CS-	tools/padlock.jpg	2.0	1.608	MO
+55.11600000000001	5.0	CS-	tools/videogamecontroller.jpg	2.0	0.74	DN
+65.933	4.5	CS+	animals/zebra.jpg		0.0	DO
+75.283	4.5	CS-	tools/carpetblower.jpg	2.0	0.7290000000000001	MN
+86.566	4.0	CS+	animals/rhino.jpg		0.0	DO
+97.35	5.0	CS-	tools/airpump.jpg	2.0	1.103	DO
+109.133	4.0	CS-	tools/edger.jpg	2.0	1.043	DO
+118.95	5.0	CS+	animals/halibut.jpg	2.0	1.244	DO
+129.767	5.0	CS-	tools/microwave.jpg	2.0	1.268	DO
+139.61700000000002	4.0	CS+	animals/hyena.jpg	1.0	2.265	MO
+149.433	4.5	CS-	tools/bucket.jpg		0.0	MN
+158.783	4.5	CS+	animals/canary.jpg	2.0	1.002	MO
+170.067	4.0	CS+	animals/salmon.jpg	2.0	1.709	MO
+180.85	4.5	CS-	tools/duffelbag.jpg	2.0	2.342	DO
+192.13299999999998	4.0	CS+	animals/horse.jpg	2.0	3.138	
+201.95	4.5	CS-	tools/toaster.jpg	2.0	3.3310000000000004	DO
+213.233	4.5	CS+	animals/aardvark.jpg	2.0	3.867	DN
+224.517	5.0	CS-	tools/solderingtorch.jpg	2.0	0.698	DO
+235.333	4.0	CS-	tools/treadmill.jpg		0.0	DN
+244.183	4.5	CS+	animals/perch.jpg	2.0	0.731	MO
+255.467	4.5	CS+	animals/shrimp.jpg	1.0	1.1520000000000001	DO
+266.75	5.0	CS-	tools/paintbrush.jpg		0.0	DO
+277.567	5.0	CS+	animals/skunk.jpg	2.0	0.536	DN
+287.41700000000003	4.0	CS+	animals/finch.jpg		0.0	DN
+296.267	4.0	CS-	tools/camera.jpg	2.0	1.035	DO
+307.05	4.5	CS-	tools/squeegee.jpg		0.0	MO
+317.367	5.0	CS+	animals/cricket.jpg		0.0	MO
+328.18300000000005	4.0	CS-	tools/jumpercables.jpg		0.0	DO
+337.033	4.5	CS+	animals/llama.jpg	1.0	2.162	MO
+346.38300000000004	4.5	CS-	tools/screwdriver.jpg		0.0	MO
+355.733	5.0	CS+	animals/starfish.jpg	1.0	1.4580000000000002	DN
+365.583	4.0	CS-	tools/monkeywrench.jpg	2.0	0.98	DO
+374.43300000000005	4.0	CS-	tools/extensioncord.jpg	2.0	2.98	MN
+384.25	5.0	CS+	animals/cranebug.jpg		0.0	DO
+395.06699999999995	4.0	CS+	animals/flamingo.jpg	2.0	0.98	MO
+404.88300000000004	4.0	CS-	tools/campingstove.jpg	2.0	2.202	DO
+413.73400000000004	5.0	CS-	tools/hammer.jpg	2.0	0.632	DN
+424.55	5.0	CS+	animals/cat.jpg		0.0	DO
+436.334	4.0	CS-	tools/workbench.jpg		0.0	MN
+447.11699999999996	5.0	CS+	animals/caterpillarhawkmoth.jpg	2.0	4.695	MO
+457.934	5.0	CS-	tools/measuringtape.jpg		0.0	DO
+468.75	4.0	CS+	animals/goldfish.jpg		0.0	DO
+479.534	5.0	CS-	tools/chainsaw.jpg		0.0	DN
+489.384	5.0	CS+	animals/racoon.jpg		0.0	DO

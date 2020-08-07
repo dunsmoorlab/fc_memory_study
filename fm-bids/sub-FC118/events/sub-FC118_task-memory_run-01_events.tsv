@@ -1,0 +1,81 @@
+onset	duration	trial_type	stimulus	memory_condition	encode_phase	response	low_confidence_accuracy	high_confidence_accuracy	response_time
+4.0169999999999995	3.0	CS-	tools/edger.jpg	Old	baseline		M	M	
+11.084000000000001	3.0	CS+	animals/pelican.jpg	Old	acquisition	MO	H	M	2.3169999999999997
+19.15	3.0	CS+	animals/tortoise.jpg	New	foil	DN	CR	CR	2.593
+27.234	3.0	CS+	animals/mouse.jpg	Old	extinction	MN	M	M	2.117
+35.3	3.0	CS-	tools/levelmount.jpg	Old	extinction		M	M	
+42.38399999999999	3.0	CS-	tools/ropeandpulley.jpg	Old	acquisition	DO	H	H	2.103
+50.483999999999995	3.0	CS+	animals/hyena.jpg	Old	baseline	DO	H	H	1.864
+57.55	3.0	CS+	animals/highlandcow.jpg	New	foil	MN	CR	CR	2.9
+65.634	3.0	CS+	animals/porcupine.jpg	Old	acquisition	DO	H	H	1.31
+73.734	3.0	CS+	animals/firebug.jpg	Old	extinction	DO	H	H	1.139
+81.834	3.0	CS-	tools/mellonballer.jpg	New	foil	DN	CR	CR	2.345
+89.884	3.0	CS+	animals/flamingo.jpg	Old	baseline	DO	H	H	0.9570000000000001
+97.984	3.0	CS+	animals/panda.jpg	New	foil	MO	FA	CR	2.197
+106.03399999999999	3.0	CS-	tools/monkeywrench.jpg	Old	baseline	MO	H	M	2.56
+113.134	3.0	CS-	tools/microscope.jpg	New	foil	DN	CR	CR	1.673
+121.234	3.0	CS+	animals/waterdragon.jpg	New	foil		CR	CR	
+129.3	3.0	CS-	tools/hairdryer.jpg	Old	acquisition	MO	H	M	2.4930000000000003
+136.384	3.0	CS-	tools/bolt.jpg	New	foil	DN	CR	CR	1.744
+143.45	3.0	CS-	tools/ruler.jpg	Old	extinction		M	M	
+151.534	3.0	CS-	tools/level.jpg	New	foil	DN	CR	CR	2.987
+158.634	3.0	CS+	animals/marmot.jpg	Old	baseline	MO	H	M	2.2840000000000003
+165.7	3.0	CS+	animals/mink.jpg	Old	extinction	DO	H	H	1.723
+173.78400000000002	3.0	CS-	tools/ladder.jpg	Old	acquisition	MO	H	M	1.995
+180.85	3.0	CS+	animals/koala.jpg	New	foil	DN	CR	CR	2.02
+187.93400000000003	3.0	CS+	animals/mole.jpg	Old	acquisition	DO	H	H	1.4869999999999999
+196.017	3.0	CS-	tools/solderingtorch.jpg	Old	baseline	DN	M	M	2.22
+203.1	3.0	CS-	tools/measuringcups.jpg	Old	extinction	DN	M	M	2.339
+210.18400000000003	3.0	CS+	animals/crane.jpg	New	foil		CR	CR	
+218.25099999999998	3.0	CS+	animals/flounder.jpg	New	foil	MO	FA	CR	1.886
+226.35	3.0	CS+	animals/balloonfish.jpg	New	foil	DN	CR	CR	2.0709999999999997
+234.43400000000003	3.0	CS-	tools/gardenhose.jpg	Old	acquisition	DO	H	H	1.4409999999999998
+242.517	3.0	CS-	tools/whistle.jpg	New	foil	DN	CR	CR	1.37
+249.601	3.0	CS-	tools/caulkinggun.jpg	New	foil	MN	CR	CR	1.71
+256.70099999999996	3.0	CS-	tools/jumpercables.jpg	Old	baseline	DO	H	H	1.679
+264.767	3.0	CS+	animals/dramaderry.jpg	Old	extinction	DN	M	M	2.745
+272.834	3.0	CS+	animals/pigeon.jpg	Old	acquisition	DO	H	H	2.148
+279.901	3.0	CS+	animals/caterpillarhawkmoth.jpg	Old	baseline	DO	H	H	1.463
+286.967	3.0	CS-	tools/broom.jpg	Old	extinction	MN	M	M	2.839
+294.051	3.0	CS-	tools/lantern.jpg	New	foil		CR	CR	
+302.151	3.0	CS-	tools/wateringcan.jpg	New	foil	DN	CR	CR	2.006
+309.251	3.0	CS+	animals/cricket.jpg	Old	baseline	MO	H	M	2.434
+316.317	3.0	CS-	tools/sparkplug.jpg	Old	extinction	DN	M	M	2.525
+323.401	3.0	CS+	animals/horse.jpg	Old	baseline	DO	H	H	2.7319999999999998
+331.467	3.0	CS+	animals/monkey.jpg	New	foil	DN	CR	CR	1.778
+338.551	3.0	CS-	tools/whisk.jpg	New	foil	DN	CR	CR	1.874
+346.651	3.0	CS+	animals/giraffe.jpg	Old	acquisition	MO	H	M	1.685
+353.751	3.0	CS+	animals/seaslug.jpg	New	foil	DN	CR	CR	1.288
+361.851	3.0	CS-	tools/scissors.jpg	Old	acquisition	MO	H	M	1.7480000000000002
+369.917	3.0	CS+	animals/octopus.jpg	New	foil	DN	CR	CR	1.073
+377.001	3.0	CS-	tools/plow.jpg	Old	acquisition	DO	H	H	2.156
+384.084	3.0	CS-	tools/keys.jpg	New	foil	MN	CR	CR	2.3280000000000003
+391.151	3.0	CS+	animals/ladybug.jpg	New	foil	DN	CR	CR	1.158
+398.23400000000004	3.0	CS-	tools/engine.jpg	New	foil	DN	CR	CR	1.1179999999999999
+406.31699999999995	3.0	CS+	animals/herring.jpg	Old	extinction	DO	H	H	2.638
+414.384	3.0	CS+	animals/caterpillarpeacockmoth.jpg	Old	acquisition		M	M	
+421.45099999999996	3.0	CS-	tools/magnet.jpg	New	foil	DN	CR	CR	1.6369999999999998
+428.534	3.0	CS-	tools/measuringtape.jpg	Old	baseline	MN	M	M	2.489
+436.61699999999996	3.0	CS+	animals/camel.jpg	Old	extinction	DO	H	H	1.235
+443.70099999999996	3.0	CS-	tools/blackboard.jpg	Old	extinction	MO	H	M	1.453
+450.784	3.0	CS-	tools/camera.jpg	Old	baseline	DN	M	M	1.544
+457.86699999999996	3.0	CS+	animals/goldfish.jpg	Old	baseline	DO	H	H	1.219
+464.95099999999996	3.0	CS+	animals/woodlouse.jpg	New	foil	MN	CR	CR	2.379
+473.017	3.0	CS-	tools/workbench.jpg	Old	baseline	MO	H	M	1.59
+481.101	3.0	CS+	animals/shrimp.jpg	Old	baseline	MO	H	M	1.993
+488.184	3.0	CS+	animals/boar.jpg	Old	acquisition	MO	H	M	1.581
+495.251	3.0	CS-	tools/faxmachine.jpg	Old	acquisition	DO	H	H	1.505
+503.334	3.0	CS-	tools/grapplinghook.jpg	New	foil	DN	CR	CR	1.531
+511.418	3.0	CS-	tools/microwave.jpg	Old	baseline	DO	H	H	1.271
+519.518	3.0	CS+	animals/sheep.jpg	Old	extinction	MO	H	M	2.015
+527.5840000000001	3.0	CS-	tools/rollingpin.jpg	Old	acquisition	MO	H	M	1.304
+534.668	3.0	CS-	tools/electricdrill.jpg	New	foil	MO	FA	CR	1.608
+541.768	3.0	CS-	tools/thermometer.jpg	Old	extinction	DN	M	M	1.474
+549.868	3.0	CS+	animals/stickinsect.jpg	New	foil	MN	CR	CR	2.238
+556.967	3.0	CS-	tools/dremel.jpg	New	foil	MO	FA	CR	2.322
+564.068	3.0	CS+	animals/mahimahi.jpg	Old	extinction	DN	M	M	2.449
+572.134	3.0	CS-	tools/fan.jpg	Old	extinction	MN	M	M	1.683
+579.2180000000001	3.0	CS+	animals/gerbil.jpg	Old	acquisition	MO	H	M	1.995
+586.284	3.0	CS-	tools/burnisher.jpg	New	foil	DN	CR	CR	1.615
+594.368	3.0	CS+	animals/bullfrog.jpg	New	foil	MO	FA	CR	2.011
+602.451	3.0	CS+	animals/hermitcrab.jpg	New	foil		CR	CR	
