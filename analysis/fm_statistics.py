@@ -74,7 +74,21 @@ pg.wilcoxon(df.loc[('ptsd','CS+','extinction','acquisition'),'prop'],df.loc[('pt
 pg.wilcoxon(df.loc[('healthy','CS+','extinction','acquisition'),'mem_prop'],df.loc[('healthy','CS-','extinction','acquisition'),'mem_prop'],tail='greater')
 pg.wilcoxon(df.loc[('ptsd','CS+','extinction','acquisition'),'mem_prop'],df.loc[('ptsd','CS-','extinction','acquisition'),'mem_prop'],tail='greater')
 
+'''source memory collapsed'''
+df = pd.read_csv('../cleaned_avg_sm.csv'
+    ).set_index(['condition','encode_phase','response_phase','subject']).sort_index()
 
+for encode_phase in phases:
+    for con in cons:
+        for response_phase in phases:
+            x = df.loc[(con,encode_phase,response_phase),'prop']
+            print(encode_phase,con,response_phase,'\n')
+            onesample_bdm(x=x,mu=1/3,tail='two-tailed')
+            print('\n')
+
+for encode_phase in phases:
+    # print(encode_phase)
+    print(pg.wilcoxon(df.loc[('CS+',encode_phase,'acquisition'),'prop'],df.loc[('CS-',encode_phase,'acquisition'),'prop'],tail='greater'))
 
 '''CORRELATIONS WITH RECOGNITION MEMORY'''
 df = pd.read_csv('../memory_difference_scores.csv'
@@ -129,7 +143,7 @@ def sourcebeta(dat,subjects,n_boot=10000):
     onehot = onehot.rename(columns=phase_convert)
 
     for i in range(n_boot):
-        y = np.zeros(408)
+        y = np.zeros(816) #i just hardcode this for some reason, its 408 if doing by group, or 816 if both groups
         while len(np.unique(y)) == 1:
             _samp = R.choice(subjects,len(subjects))
             X = onehot.loc[_samp].values
@@ -146,26 +160,25 @@ def sourcebeta(dat,subjects,n_boot=10000):
 
 df = pd.read_csv('../cleaned_full_sm.csv'
         ).rename(columns={'trial_type':'condition'}
-        ).set_index(['group','condition','encode_phase','subject']
+        ).set_index(['condition','encode_phase','subject']
         ).sort_index()
 
 betas = {}
-for group in groups:
-    betas[group] = {}
-    #get the right subject args, too lazy to put this in config
-    if group == 'healthy': subjects = [i for i in xcl_sub_args if i < 100]
-    elif group == 'ptsd':  subjects = [i for i in xcl_sub_args if i > 100]
+# for group in groups:
+#     betas[group] = {}
+#     #get the right subject args, too lazy to put this in config
+#     if group == 'healthy': subjects = [i for i in xcl_sub_args if i < 100]
+#     elif group == 'ptsd':  subjects = [i for i in xcl_sub_args if i > 100]
     
-    for con in cons:
-        betas[group][con] = {}
-        
-        for phase in phases:
-            print(group,con,phase)
-            dat = df.loc[group,con,phase].copy()
+for con in cons:
+    betas[con] = {}    
+    for phase in phases:
+        print(con,phase)
+        dat = df.loc[con,phase].copy()
 
-            betas[group][con][phase] = sourcebeta(dat,subjects)
+        betas[con][phase] = sourcebeta(dat,xcl_sub_args)
 
-with open('../logreg_betas.p','wb') as file:
+with open('../sourcemem_logreg_betas.p','wb') as file:
     pickle.dump(betas,file,protocol=pickle.HIGHEST_PROTOCOL)
 
 #see graphing script for p-values for the above, just easier to do it there

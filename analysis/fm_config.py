@@ -14,6 +14,7 @@ from numpy.random import RandomState
 from sklearn.linear_model import LogisticRegression
 from matplotlib.ticker import MultipleLocator
 from scipy.special import expit
+from matplotlib.patches import Patch
 
 sns.set_context('notebook')
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
@@ -40,6 +41,8 @@ subjects = {'healthy':sub_args,
 
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
+spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
+
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}
 
@@ -251,3 +254,31 @@ def pdm(x,y,tail='two',nperm=10000):
     print(pg.ttest(x,y,paired=True))
     return fixed, p, perm_res
 
+def onesample_bdm(x,mu=0,tail='two-tailed',n_boot=10000):
+    R = np.random.RandomState(42)
+
+    boot_res = np.zeros(n_boot)
+
+    for i in range(n_boot):
+        boot_res[i] = R.choice(x,size=x.shape,replace=True).mean()
+    avg = x.mean()
+
+    if tail == 'two-tailed':
+        if avg > mu:
+            p = (1 - np.mean(boot_res > mu)) * 2
+        else:
+            p = (1 - np.mean(boot_res < mu)) * 2
+        ci = (np.percentile(boot_res,2.5),np.percentile(boot_res,97.5))
+
+    elif tail == 'greater':
+        p = 1 - np.mean(boot_res > mu)
+        ci = (np.percentile(boot_res,5),np.percentile(boot_res,100))
+
+    elif tail == 'less':
+        p = 1 - np.mean(boot_res < mu)
+        ci = (np.percentile(boot_res,0),np.percentile(boot_res,95))
+
+    if p == 0.0: p = 1/n_boot
+
+    res = pd.DataFrame({'mu':mu,'avg':avg,'CI_l':ci[0],'CI_u':ci[1],'p':p,'tail':tail},index=[0])
+    print(res.round(4))

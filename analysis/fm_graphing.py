@@ -26,17 +26,18 @@ for i, phase in enumerate(phases):
 
     # sns.stripplot(data=dat,x='encode_phase',y='cr',hue='condition',linewidth=1.5,hue_order=['CS-','CS+'],
     #             edgecolor='black',palette=[cpal[1],cpal[0]],dodge=True,ax=ax[i],jitter=1)
+    sns.pointplot(data=dat,x='encode_phase',y='cr',hue='condition',hue_order=['CS-','CS+'],
+            palette=[cpal[1],cpal[0]],ax=ax[i],dodge=True)
 
-
-    ax[i].legend_.remove()    
 
     for sub in dat.subject.unique():
         csm = dat.cr[dat.condition == 'CS-'][dat.subject == sub].values[0]
         csp = dat.cr[dat.condition == 'CS+'][dat.subject == sub].values[0]
-        ax[i].plot([-.1,.1],[csm,csp],c='grey',linewidth=.5,alpha=.8)
+        ax[i].plot([-.05,.05],[csm,csp],c='grey',linewidth=.5,alpha=.8)
     
-    sns.pointplot(data=dat,x='encode_phase',y='cr',hue='condition',hue_order=['CS-','CS+'],
-            palette=[cpal[1],cpal[0]],ax=ax[i],dodge=True,saturation=.1)
+
+
+    ax[i].legend_.remove()    
 
     # sns.despine(ax=ax,trim=True)
     ax[i].set_ylim(-0.05,1)
@@ -56,8 +57,13 @@ ax[2].set_ylabel('')
 ax[2].set_xlabel('')
 ax[2].set_xticklabels(['Extinction'],ha='center')
 
-    # ax.hlines(0,ax.get_xlim()[0],ax.get_xlim()[1],color='black',linestyles='--')
-    # ax.set_title(group)
+#boring barplot version
+fig, ax = plt.subplots(figsize=(8,5))
+sns.barplot(data=df,x='encode_phase',y='cr',hue='condition',hue_order=['CS-','CS+'],
+            palette=[cpal[1],cpal[0]])
+ax.set_ylabel('Corrected recognition')
+ax.set_xlabel('Encoding Phase')
+ax.set_xticklabels(['Baseline','Acquisition','Extinction'],ha='center')
 
 
 
@@ -77,6 +83,27 @@ for phase in phases:
         ax[i].set_xlabel('Source Memory Response Phase')
         ax[i].set_title(group)
     plt.suptitle('Encoding Phase =\n%s'%(phase))
+
+#source memory collapsed across groups
+df = pd.read_csv('../cleaned_avg_sm.csv')
+fig, ax = plt.subplots(1,3,figsize=(12,5),sharey=True)
+for i, phase in enumerate(phases):
+    dat = df[df.encode_phase == phase].copy()
+    sns.barplot(data=dat,x='condition',y='prop',hue='response_phase',ax=ax[i],
+        palette=spal)
+    ax[i].hlines(1/3,ax[i].get_xlim()[0],ax[i].get_xlim()[1],linestyle=':')
+    if i != 0:ax[i].set_ylabel('')
+    else:ax[i].set_ylabel('Proportion of items')
+    ax[i].legend_.remove()
+legend_elements = [Patch(facecolor=spal[0],edgecolor=None,label='Baseline'),
+                   Patch(facecolor=spal[1],edgecolor=None,label='Acquisition'),
+                   Patch(facecolor=spal[2],edgecolor=None,label='Extinction')]
+ax[0].legend(handles=legend_elements,loc='upper right')
+ax[0].legend_.set_title('Source memory\n      response')
+ax[0].set_xlabel('Baseline')
+ax[1].set_xlabel('Acquisition')
+ax[2].set_xlabel('Extinction')
+
 
 #source memory but just with remembered items
 for phase in phases:
@@ -170,9 +197,62 @@ for phase in phases:
     # ax[1].set_ylabel('')
     plt.suptitle('Encoding Phase =\n%s'%(phase))
 
+#same as above but without group
+with open('../sourcemem_logreg_betas.p','rb') as file:
+    betas = pickle.load(file)
+
+fig, ax = plt.subplots(1,3,figsize=(12,5),sharey=True)
+for i, phase in enumerate(phases):
+    df = pd.DataFrame(np.concatenate((betas['CS+'][phase],betas['CS-'][phase])))
+    df['condition'] = np.repeat(['CS+','CS-'],10000)
+    df = df.rename(columns={0:'baseline',1:'acquisition',2:'extinction'})
+    df = df.melt(id_vars=['condition'],var_name='response_phase',value_name='beta')
+    
+    sns.violinplot(data=df,x='condition',y='beta',hue='response_phase',
+                    inner=None,palette=spal,ax=ax[i],scale='count',width=.6)
+
+    ax[i].hlines(0,ax[i].get_xlim()[0],ax[i].get_xlim()[1],linestyle=':')
+
+    if i != 0:ax[i].set_ylabel('')
+    else:ax[i].set_ylabel('Logistic regression beta')
+    ax[i].legend_.remove()
+
+    pvals = df.groupby(['condition','response_phase']).apply(lambda x: 1 - np.mean(x > 0))
+    pvals['p'] = pvals.beta.apply(lambda x: x if x < .5 else 1-x)
+    pvals['tail'] = pvals.beta.apply(lambda x: '>' if x < .5 else '<')
+    pvals.p = pvals.p * 2
+    pvals.beta = df.groupby(['condition','response_phase']).mean()
+    pvals['ci'] = df.groupby(['condition','response_phase']).apply(lambda x: np.round([np.percentile(x,2.5),np.percentile(x,97.5)],4))
+    pvals = pvals.reset_index()
+    pvals['encode_phase'] = phase
+    print(phase)
+    print(pvals[['condition','encode_phase','response_phase','beta','ci','p','tail']][pvals.p < .1],'\n\n')
+
+legend_elements = [Patch(facecolor=spal[0],edgecolor=None,label='Baseline'),
+                   Patch(facecolor=spal[1],edgecolor=None,label='Acquisition'),
+                   Patch(facecolor=spal[2],edgecolor=None,label='Extinction')]
+ax[2].legend(bbox_to_anchor=(1.3, 1),handles=legend_elements)
+ax[2].legend_.set_title('Source memory\n      response')
+ax[0].set_xlabel('Baseline')
+ax[1].set_xlabel('Acquisition')
+ax[2].set_xlabel('Extinction')
+
 
 
 '''TYPICALITY LOGISTICS'''
+with open('../typicality_logreg_betas.p','rb') as file:
+    betas = pickle.load(file)
+for con in cons:
+    x = betas[con]
+    print(x.mean())
+    print(np.percentile(x,2.5),np.percentile(x,97.5))
+    print((1 - np.mean(x > 0))*2)
+x = betas['CS+'] - betas['CS-']
+print(x.mean())
+print(np.percentile(x,2.5),np.percentile(x,97.5))
+print((1 - np.mean(x > 0))*2)
+
+
 
 
 '''TYPICALITY LOGISTIC CURVES'''
@@ -191,3 +271,4 @@ for i, con in enumerate(cons):
     ax[i].set_xlabel('Typicality')
 
 ax[0].set_ylabel('High confidence "hit"')
+

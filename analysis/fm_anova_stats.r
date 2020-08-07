@@ -1,11 +1,11 @@
 require(ez)
-require(wPerm)
 require(permuco)
-require(lme4)
-require(afex)
-require(lmerTest) #Package must be installed first
-require(emmeans)
-require(irr)
+require(dplyr)
+#require(lme4)
+#require(afex)
+#require(lmerTest) #Package must be installed first
+#require(emmeans)
+#require(irr)
 
 setwd("C:/Users/ACH/Documents/fearmem")
 
@@ -14,14 +14,23 @@ str(df)
 df$subject <- as.factor(df$subject)
 
 full.form <- cr ~ group * condition * encode_phase + Error(subject/(condition*encode_phase))
-full.cr <- aovperm(full.form,df,np=10000)
+full.aov <- aovperm(full.form,df,np=10000)
 
-
+collapse.form <- cr ~ condition * encode_phase + Error(subject/(condition*encode_phase))
+collapse.aov <- aovperm(collapse.form,df,np=10000)
+select(collapse.aov$table, dfn, dfd, F, "permutation P(>F)")
 
 #source memory
 df <- read.csv('cleaned_avg_sm.csv')
 str(df)
 df$subject <- as.factor(df$subject)
+
+full.source.form <- prop ~ group * response_phase * condition * encode_phase + Error(subject/(response_phase * condition * encode_phase))
+full.source.aov <- aovperm(full.source.form,df,np=10000)
+
+collapse.source.form <- prop ~ response_phase * condition * encode_phase + Error(subject/(response_phase * condition * encode_phase))
+collapse.source.aov <- aovperm(collapse.source.form,df,np=10000)
+select(collapse.source.aov$table, dfn, dfd, F, "permutation P(>F)")
 
 #subset baseline
 baseline = df[with(df,encode_phase == 'baseline'),]
