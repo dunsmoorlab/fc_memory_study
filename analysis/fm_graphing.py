@@ -156,13 +156,58 @@ with sns.axes_style('whitegrid'):
     ax.set_xlabel('Typicality')
     ax.set_ylabel('')
 
-#recog and source correlations
-df = pd.read_csv('../memory_difference_scores.csv')
+'''TYPICALITY COLLAPSED BY STIM'''
+df = pd.read_csv('../cleaned_full_sm.csv'
+        ).rename(columns={'trial_type':'condition'})
+df['category'] = df.stimulus.apply(lambda x: 'animals' if 'animals' in x else 'tools')
 
-for phase in ['baseline','extinction']:
-    dat = df[df.encode_phase==phase][df.response_phase=='acquisition'].copy()
-    sns.lmplot(data=dat,x='prop',y='cr',col='group',hue='group',palette=gpal)
-    sns.lmplot(data=dat,x='mem_prop',y='cr',col='group',hue='group',palette=gpal)
+stim = df.groupby(['stimulus']).mean().reset_index().sort_values(by='hc_acc',ascending=False)
+stim_order = stim.stimulus.values
+
+#all stims no breakdown
+sns.set_context('notebook',font_scale=1.4)
+with sns.axes_style('whitegrid'):
+    fig, ax = plt.subplots(figsize=(8,5))
+    sns.pointplot(data=df,x='stimulus',y='typicality',hue='category',
+                    order=stim_order,ax=ax, palette=wes_palettes['Chevalier'], hue_order=['animals','tools'])
+    ax.set_xticklabels('')
+    ax.set_ylim(1,7)
+    ax.set_ylabel('Typicality')#,fontsize=20)
+    ax.set_xlabel('Stimulus')#, fontsize=20)
+    # plt.setp(ax.collections, sizes=[1])
+
+    #all stims hc hit rate
+    fig, ax = plt.subplots(figsize=(8,5))
+    sns.pointplot(data=df,x='stimulus',y='hc_acc',hue='category',
+        order=stim_order,ax=ax, palette=wes_palettes['Chevalier'], hue_order=['animals','tools'])
+    ax.set_xticklabels('')
+    ax.set_ylim(0,1)
+    ax.set_ylabel('High confidence\nhit rate')
+    ax.set_xlabel('Stimulus')
+
+    #now CS+/-
+    fig, ax = plt.subplots(2,sharey=True,sharex=True,figsize=(8,10))
+    for c, con in enumerate(cons):
+        sns.pointplot(data=df.query("condition == @con"),x='stimulus',y='typicality',hue='category',
+                        order=stim_order,ax=ax[c], palette=wes_palettes['Chevalier'], hue_order=['animals','tools'])
+        ax[c].set_xticklabels('')
+        ax[c].set_ylim(1,7)
+        ax[c].set_ylabel('Typicality')
+        ax[c].set_title(con)
+    ax[0].set_xlabel('')
+    ax[1].set_xlabel('Stimulus')
+    ax[0].legend_.remove()
+
+q = sns.catplot(data=df,x='stimulus',y='typicality',row='condition',col='category',kind='point')
+
+'''RECOG AND SOURCE MEM CORRELATIONS'''
+df = pd.read_csv('../memory_difference_scores.csv'
+        # ).set_index(['group','encode_phase','response_phase','subject'])
+        ).set_index(['encode_phase','response_phase','subject'])
+
+q = sns.lmplot(data=df.reset_index().query('response_phase == "acquisition"'),
+            x='mem_count',y='cr',col='encode_phase',palette=spal[0])
+q.set_axis_labels('"Acquisition" response difference\n(only using remembered items)','Corrected recognition difference')
 
 
 

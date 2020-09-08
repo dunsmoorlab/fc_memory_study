@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"q",
+				"query"
+			],
+			[
+				"poin",
+				"pointplot"
+			],
+			[
+				"set_y",
+				"set_ylabel"
+			],
+			[
 				"resp",
 				"response_phase"
 			],
@@ -502,46 +514,25 @@
 			[
 				"ana",
 				"anatomy"
-			],
-			[
-				"lch",
-				"lch_csp_fa_rate"
-			],
-			[
-				"false",
-				"false_alarm"
-			],
-			[
-				"forget",
-				"forget2"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "fm_behavioral.py",
-			"settings":
-			{
-				"buffer_size": 5768,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "util_scripts.py",
-			"settings":
-			{
-				"buffer_size": 3228,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "fm_graphing.py",
 			"settings":
 			{
-				"buffer_size": 10374,
+				"buffer_size": 12375,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "fm_behavioral.py",
+			"settings":
+			{
+				"buffer_size": 6071,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +541,16 @@
 			"file": "fm_statistics.py",
 			"settings":
 			{
-				"buffer_size": 9451,
+				"buffer_size": 10172,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "util_scripts.py",
+			"settings":
+			{
+				"buffer_size": 3719,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -560,31 +560,6 @@
 			"settings":
 			{
 				"buffer_size": 10673,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ACH/Documents/ExPress/analysis/real_better_graphing.py",
-			"settings":
-			{
-				"buffer_size": 5026,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ACH/Documents/gPPI/fg_config.py",
-			"settings":
-			{
-				"buffer_size": 7175,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/ACH/Documents/gPPI/graphing_functions.py",
-			"settings":
-			{
-				"buffer_size": 23395,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -698,6 +673,12 @@
 	],
 	"file_history":
 	[
+		"/C/Users/ACH/Documents/gPPI/graphing_functions.py",
+		"/C/Users/ACH/Documents/gPPI/fg_config.py",
+		"/C/Users/ACH/Documents/ExPress/analysis/real_better_graphing.py",
+		"/C/Users/ACH/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json",
+		"/C/Users/ACH/Documents/fearmem/stimulus_list.txt",
+		"/C/Program Files (x86)/Mendeley Desktop/MendeleyDesktop.exe.manifest",
 		"/C/Users/ACH/Documents/ExPress/analysis/ex_config.py",
 		"/D/FearCon/CodeBase/fc_behavioral.py",
 		"/C/Users/ACH/Documents/fearmem/analysis/fm_behavioral.py",
@@ -716,7 +697,6 @@
 		"/C/Users/ACH/Documents/fc_memory_study/fc-behavior_bids/sub-FC107/events/sub-FC107_task-localizer_run-02_events.tsv",
 		"/C/Users/ACH/Documents/fc_memory_study/analysis/fg_config.py",
 		"/C/Users/ACH/Documents/Dunsmoor Lab/posgen/gengraph.py",
-		"/C/Users/ACH/Documents/gPPI/fg_config.py",
 		"/C/ProgramData/Miniconda3/Lib/site-packages/seaborn/miscplot.py",
 		"/C/Users/ACH/Documents/Dunsmoor Lab/custom_bids/fc.json",
 		"/D/FearCon/CodeBase/fearcon_response.py",
@@ -727,7 +707,6 @@
 		"/C/Users/ACH/Documents/gPPI/fg_preproc.py",
 		"/C/Users/ACH/Desktop/express_graphing_example.py",
 		"/C/Users/ACH/Documents/ExPress/analysis/ex_behavioral.py",
-		"/C/Users/ACH/Documents/ExPress/analysis/real_better_graphing.py",
 		"/D/FearCon/Group_GLM/group_4trial_corr.gfeat/logs/feat0",
 		"/C/Users/ACH/Documents/gPPI/conn_rsa.py",
 		"/C/Users/ACH/Documents/gPPI/group_gPPI_analysis.py",
@@ -738,7 +717,6 @@
 		"/C/Users/ACH/Documents/ExPress/analysis/graphing.py",
 		"/C/Users/ACH/AppData/Roaming/Sublime Text 3/Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/mutedrainbow_sky.tmTheme",
 		"/C/Program Files/WindowsApps/Microsoft.WindowsTerminal_1.0.1401.0_x64__8wekyb3d8bbwe/defaults.json",
-		"/C/Users/ACH/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json",
 		"/C/Users/ACH/Documents/gPPI/univariate_analysis.py",
 		"/C/Users/ACH/Documents/gPPI/bids_model.py",
 		"/C/Users/ACH/Documents/gPPI/py_surfer_test.py",
@@ -748,7 +726,6 @@
 		"/C/Users/ACH/Documents/gPPI/feats/gPPI/day1_encode_gPPI.fsf",
 		"/C/Users/ACH/Documents/gPPI/feats/gPPI/template_memory_run-01_gPPI.fsf",
 		"/C/Users/ACH/Desktop/design.mat",
-		"/C/Users/ACH/Documents/gPPI/graphing_functions.py",
 		"/C/Users/ACH/Desktop/sub-FC010_memory_run-03_gPPI.feat/test.mat",
 		"/C/Users/ACH/Dropbox (LewPeaLab)/STUDY/FearCon/CodeBase/fc_behavioral.py",
 		"/C/Users/ACH/Documents/quals_practice_notes.txt",
@@ -823,9 +800,7 @@
 		"/C/Users/ACH/Desktop/MNI152NLin2009cAsym/COPYING",
 		"/C/Users/ACH/Desktop/test.ahk",
 		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/gPPI/mem_encode_lvl2_gPPI.fsf",
-		"/C/Users/ACH/AppData/Local/Temp/7zO0F3C1CBE/README.txt",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/gPPI/group_cope.fsf",
-		"/D/group_gPPI/lh_amyg/cope10.gfeat/design.fsf"
+		"/C/Users/ACH/AppData/Local/Temp/7zO0F3C1CBE/README.txt"
 	],
 	"find":
 	{
@@ -844,6 +819,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"set_context",
+			"pal",
+			"cat",
+			"multiple",
+			"legend",
 			"3",
 			"upper_right",
 			"5",
@@ -966,12 +946,7 @@
 			"memory_run-01",
 			"sub-FC001",
 			"split",
-			"tanh",
-			"range(1",
-			"range(",
-			"phases",
-			"pfc",
-			"encode"
+			"tanh"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -989,84 +964,24 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "fm_behavioral.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5768,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23,
-								23
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "util_scripts.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3228,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2623,
-								2395
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1368.57142857,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "fm_graphing.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10374,
+						"buffer_size": 12375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9362,
-								9362
+								6992,
+								6992
 							]
 						],
 						"settings":
@@ -1076,27 +991,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6214.0,
+						"translation.y": 4278.85714286,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "fm_behavioral.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6071,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2085,
+								2085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 884.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "fm_statistics.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9451,
+						"buffer_size": 10172,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9330,
-								9330
+								9935,
+								9936
 							]
 						],
 						"settings":
@@ -1107,10 +1052,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4726.0,
+						"translation.y": 5304.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "util_scripts.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2423,
+								3255
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1126,111 +1101,21 @@
 						"selection":
 						[
 							[
-								10191,
-								10249
+								1463,
+								1485
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6520.0,
+						"translation.y": 566.285714286,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/ACH/Documents/ExPress/analysis/real_better_graphing.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5026,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								28,
-								74
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/ACH/Documents/gPPI/fg_config.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7175,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								79,
-								82
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Users/ACH/Documents/gPPI/graphing_functions.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23395,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								459,
-								459
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1293,12 +1178,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\Users\\ACH\\Documents\\gPPI\\gPPI.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

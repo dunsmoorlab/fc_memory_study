@@ -10,7 +10,9 @@ class smt():
     def init_dfs(self):
 
         self.sm_df = pd.DataFrame({'prop':0.0,
-                                   'mem_prop':0.0},
+                                   'mem_prop':0.0,
+                                   '_count':0,
+                                   'mem_count':0},
                                     index=pd.MultiIndex.from_product(
                                     [smt_sub_args,cons,phases,phases],
                                     names=['subject','condition','encode_phase','response_phase']))
@@ -40,12 +42,14 @@ class smt():
                     dat = df.loc[con,encode_phase].copy()
                     
                     for response_phase in phases:
-                        prop = np.where(dat.source_memory == response_phase)[0].shape[0] / 24
-                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'prop'] = prop
+                        _count = np.where(dat.source_memory == response_phase)[0].shape[0] 
+                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'prop'] = _count / 24
+                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'_count'] = _count
 
                         mem_dat = dat[dat.hc_acc == 1].copy()
-                        mem_prop = np.where(mem_dat.source_memory == response_phase)[0].shape[0] / mem_dat.shape[0] 
-                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'mem_prop'] = mem_prop
+                        mem_count = np.where(mem_dat.source_memory == response_phase)[0].shape[0] 
+                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'mem_prop'] = mem_count / mem_dat.shape[0] 
+                        self.sm_df.loc[(sub,con,encode_phase,response_phase),'mem_count'] = mem_count
 
 
                     self.ty_df.loc[(sub,con,encode_phase),'typicality'] = dat.typicality.mean()

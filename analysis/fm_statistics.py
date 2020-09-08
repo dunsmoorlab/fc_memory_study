@@ -92,23 +92,33 @@ for encode_phase in phases:
 
 '''CORRELATIONS WITH RECOGNITION MEMORY'''
 df = pd.read_csv('../memory_difference_scores.csv'
-        ).set_index(['group','encode_phase','response_phase','subject'])
+        # ).set_index(['group','encode_phase','response_phase','subject'])
+        ).set_index(['encode_phase','response_phase','subject'])
 
-#baseline correlation with all prop
-pg.corr(df.loc[('healthy','baseline','acquisition'),'cr'],df.loc[('healthy','baseline','acquisition'),'prop'])
-pg.corr(df.loc[('ptsd','baseline','acquisition'),'cr'],df.loc[('ptsd','baseline','acquisition'),'prop'])
+# #baseline correlation with all prop
+# pg.corr(df.loc[('healthy','baseline','acquisition'),'cr'],df.loc[('healthy','baseline','acquisition'),'prop'])
+# pg.corr(df.loc[('ptsd','baseline','acquisition'),'cr'],df.loc[('ptsd','baseline','acquisition'),'prop'])
 
-#baseline correlation with memory prop
-pg.corr(df.loc[('healthy','baseline','acquisition'),'cr'],df.loc[('healthy','baseline','acquisition'),'mem_prop'])
-pg.corr(df.loc[('ptsd','baseline','acquisition'),'cr'],df.loc[('ptsd','baseline','acquisition'),'mem_prop'])
+# #baseline correlation with memory prop
+# pg.corr(df.loc[('healthy','baseline','acquisition'),'cr'],df.loc[('healthy','baseline','acquisition'),'mem_prop'])
+# pg.corr(df.loc[('ptsd','baseline','acquisition'),'cr'],df.loc[('ptsd','baseline','acquisition'),'mem_prop'])
 
-#extinction correlation with all prop
-pg.corr(df.loc[('healthy','extinction','acquisition'),'cr'],df.loc[('healthy','extinction','acquisition'),'prop'])
-pg.corr(df.loc[('ptsd','extinction','acquisition'),'cr'],df.loc[('ptsd','extinction','acquisition'),'prop'])
+# #extinction correlation with all prop
+# pg.corr(df.loc[('healthy','extinction','acquisition'),'cr'],df.loc[('healthy','extinction','acquisition'),'prop'])
+# pg.corr(df.loc[('ptsd','extinction','acquisition'),'cr'],df.loc[('ptsd','extinction','acquisition'),'prop'])
 
-#extinction correlation with memory prop
-pg.corr(df.loc[('healthy','extinction','acquisition'),'cr'],df.loc[('healthy','extinction','acquisition'),'mem_prop'])
-pg.corr(df.loc[('ptsd','extinction','acquisition'),'cr'],df.loc[('ptsd','extinction','acquisition'),'mem_prop'])
+# #extinction correlation with memory prop
+# pg.corr(df.loc[('healthy','extinction','acquisition'),'cr'],df.loc[('healthy','extinction','acquisition'),'mem_prop'])
+# pg.corr(df.loc[('ptsd','extinction','acquisition'),'cr'],df.loc[('ptsd','extinction','acquisition'),'mem_prop'])
+
+#group collapse
+pg.corr(df.loc[('baseline','acquisition'),'mem_count'],df.loc[('baseline','acquisition'),'cr'])[['r','p-val']]
+pg.corr(df.loc[('acquisition','acquisition'),'mem_count'],df.loc[('acquisition','acquisition'),'cr'])[['r','p-val']]
+pg.corr(df.loc[('extinction','acquisition'),'mem_count'],df.loc[('extinction','acquisition'),'cr'])[['r','p-val']]
+
+q = sns.lmplot(data=df.reset_index().query('response_phase == "acquisition"'),
+            x='mem_count',y='cr',col='encode_phase',palette=spal[0])
+q.set_axis_labels('"Acquisition" response difference\n(only using remembered items)','Corrected recognition difference')
 
 
 '''Typicality'''

@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 
 from fm_config import *
+from fm_behavioral import *
 
 # def sm_convert(x):
 #     if x == 1: return 'baseline'
@@ -90,3 +91,21 @@ for sub in xcl_sub_args:
 sm = sm.reset_index()
 sm['group'] = sm.subject.apply(lgroup)
 sm.to_csv('../memory_difference_scores.csv',index=False)
+
+
+
+###collect stim list for memorability
+
+#this parapgrah just proves that all subs had the same 
+s1 = bids_meta(1).mem_df
+s1 = s1.sort_values(by='stimulus')
+
+for sub in all_sub_args:
+    s2 = bids_meta(sub).mem_df
+    s2 = s2.sort_values(by='stimulus')
+
+    assert np.array_equal(s1.stimulus.values,s2.stimulus.values)
+
+s1['stim_out'] = 'https://github.com/dunsmoorlab/fc_memory_study/stims/' + s1.stimulus
+
+s1.stim_out.to_csv('../stimulus_list.txt',index=False)
