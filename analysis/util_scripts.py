@@ -109,3 +109,18 @@ for sub in all_sub_args:
 s1['stim_out'] = 'https://github.com/dunsmoorlab/fc_memory_study/stims/' + s1.stimulus
 
 s1.stim_out.to_csv('../stimulus_list.txt',index=False)
+
+
+#add trial number to subjects source memory data
+for sub in smt_sub_args:
+    subj = bids_meta(sub)
+    sm = subj.behav['source_memory_typicality'].copy().set_index('stimulus')
+    sm['trial_number'] = 0
+    for encode_phase in ['baseline','acquisition','extinction']:
+        enc = subj.behav[encode_phase].copy()
+        enc['trial_number'] = 0
+        for con in cons:
+            enc.loc[enc.trial_type == con,'trial_number'] = np.arange(1,25)
+        for s, stim in enumerate(enc.stimulus):
+            sm.loc[stim,'trial_number'] = enc.loc[s,'trial_number']
+    sm.to_csv(f'{subj.events}/{subj.fsub}_task-source_memory_typicality_events.tsv',sep='\t')

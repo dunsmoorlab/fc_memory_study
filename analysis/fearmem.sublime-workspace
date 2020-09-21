@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"dis",
+				"discrete"
+			],
+			[
+				"tria",
+				"trial_number"
+			],
+			[
+				"trial",
+				"trial_number"
+			],
+			[
+				"source",
+				"source_memory_typicality"
+			],
+			[
 				"q",
 				"query"
 			],
@@ -78,10 +94,6 @@
 			[
 				"subject",
 				"subjects"
-			],
-			[
-				"source",
-				"source_memory"
 			],
 			[
 				"phase",
@@ -502,18 +514,6 @@
 			[
 				"extin",
 				"extinction_recall"
-			],
-			[
-				"weigh",
-				"weight_dir"
-			],
-			[
-				"fe",
-				"fearconditioning"
-			],
-			[
-				"ana",
-				"anatomy"
 			]
 		]
 	},
@@ -523,16 +523,7 @@
 			"file": "fm_graphing.py",
 			"settings":
 			{
-				"buffer_size": 12375,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "fm_behavioral.py",
-			"settings":
-			{
-				"buffer_size": 6071,
+				"buffer_size": 16809,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -550,7 +541,7 @@
 			"file": "util_scripts.py",
 			"settings":
 			{
-				"buffer_size": 3719,
+				"buffer_size": 4380,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -559,7 +550,7 @@
 			"file": "fm_config.py",
 			"settings":
 			{
-				"buffer_size": 10673,
+				"buffer_size": 10794,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -673,6 +664,10 @@
 	],
 	"file_history":
 	[
+		"/C/Users/ACH/Documents/fearmem/analysis/fm_behavioral.py",
+		"/C/Users/ACH/Downloads/fslinstaller.py",
+		"/C/Users/ACH/Desktop/basic_model_lvl2_cope_input_test.gfeat/design.fsf",
+		"/C/Users/ACH/Desktop/source_memory_lvl2.gfeat/design.con",
 		"/C/Users/ACH/Documents/gPPI/graphing_functions.py",
 		"/C/Users/ACH/Documents/gPPI/fg_config.py",
 		"/C/Users/ACH/Documents/ExPress/analysis/real_better_graphing.py",
@@ -681,7 +676,6 @@
 		"/C/Program Files (x86)/Mendeley Desktop/MendeleyDesktop.exe.manifest",
 		"/C/Users/ACH/Documents/ExPress/analysis/ex_config.py",
 		"/D/FearCon/CodeBase/fc_behavioral.py",
-		"/C/Users/ACH/Documents/fearmem/analysis/fm_behavioral.py",
 		"/C/Users/ACH/Documents/fearmem/analysis/util_scripts.py",
 		"/C/Users/ACH/Documents/fearmem/analysis/fm_config.py",
 		"/D/FearCon/CodeBase/PCL_response.py",
@@ -797,14 +791,11 @@
 		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_memory_run-03.fsf",
 		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_renewal.fsf",
 		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_acquisition_lvl1.fsf",
-		"/C/Users/ACH/Desktop/MNI152NLin2009cAsym/COPYING",
-		"/C/Users/ACH/Desktop/test.ahk",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/gPPI/mem_encode_lvl2_gPPI.fsf",
-		"/C/Users/ACH/AppData/Local/Temp/7zO0F3C1CBE/README.txt"
+		"/C/Users/ACH/Desktop/MNI152NLin2009cAsym/COPYING"
 	],
 	"find":
 	{
-		"height": 48.5714285714
+		"height": 51.4285714286
 	},
 	"find_in_files":
 	{
@@ -819,6 +810,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			")')",
+			"spal = ",
+			"all stims",
+			"6.0",
+			"version",
+			"24",
+			"set",
 			"set_context",
 			"pal",
 			"cat",
@@ -939,14 +937,7 @@
 			"lh_amyg",
 			"ROI",
 			"roi",
-			"lh_amyg",
-			"pass",
-			"ROI",
-			"roi",
-			"memory_run-01",
-			"sub-FC001",
-			"split",
-			"tanh"
+			"lh_amyg"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -973,15 +964,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12375,
+						"buffer_size": 16809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6992,
-								6992
+								13434,
+								13434
 							]
 						],
 						"settings":
@@ -991,7 +982,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4278.85714286,
+						"translation.y": 9426.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -999,36 +990,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "fm_behavioral.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6071,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2085,
-								2085
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 884.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "fm_statistics.py",
 					"semi_transient": false,
 					"settings":
@@ -1040,8 +1001,8 @@
 						"selection":
 						[
 							[
-								9935,
-								9936
+								8518,
+								8518
 							]
 						],
 						"settings":
@@ -1052,27 +1013,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5304.0,
+						"translation.y": 3973.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "util_scripts.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3719,
+						"buffer_size": 4380,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2423,
-								3255
+								1969,
+								2017
 							]
 						],
 						"settings":
@@ -1082,27 +1043,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1508.0,
+						"translation.y": 1012.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "fm_config.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10673,
+						"buffer_size": 10794,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1463,
-								1485
+								2360,
+								2360
 							]
 						],
 						"settings":
@@ -1112,10 +1073,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 566.285714286,
+						"translation.y": 1074.28571429,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1123,7 +1084,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 35.0
+		"height": 38.0
 	},
 	"input":
 	{
@@ -1164,7 +1125,7 @@
 	"project": "fearmem.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":

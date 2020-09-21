@@ -15,8 +15,9 @@ from sklearn.linear_model import LogisticRegression
 from matplotlib.ticker import MultipleLocator
 from scipy.special import expit
 from matplotlib.patches import Patch
+import matplotlib.ticker as mtick
 
-sns.set_context('notebook')
+sns.set_context('notebook',font_scale=1.4)
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
 # sns.set_style({'axes.facecolor':'.9','figure.facecolor':'.9'})
 rcParams['font.family'] = 'sans-serif'
@@ -42,7 +43,7 @@ subjects = {'healthy':sub_args,
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
-
+tpal = list((wes_palettes['Chevalier'][0],wes_palettes['Chevalier'][1]))
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}
 

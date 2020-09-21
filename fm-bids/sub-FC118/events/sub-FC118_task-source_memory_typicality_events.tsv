@@ -1,145 +1,145 @@
-stimulus	source_memory	typicality	trial_type	encode_phase	recognition_memory
-tools/gardenhose.jpg	3	7	CS-	acquisition	DO
-animals/tiger.jpg	2	7	CS+	acquisition	DO
-animals/mahimahi.jpg	3	4	CS+	extinction	DN
-animals/flamingo.jpg	2	7	CS+	baseline	DO
-tools/blackboard.jpg	3	6	CS-	extinction	MO
-animals/sheep.jpg	2	7	CS+	extinction	MO
-animals/dramaderry.jpg	3	4	CS+	extinction	DN
-tools/fan.jpg	3	6	CS-	extinction	MN
-animals/cat.jpg	2	7	CS+	baseline	DN
-animals/elephantafrican.jpg	2	7	CS+	baseline	DO
-tools/weldinghelmet.jpg	3	3	CS-	acquisition	DN
-tools/monkeywrench.jpg	2	6	CS-	baseline	MO
-animals/ant.jpg	3	7	CS+	extinction	DN
-animals/pelican.jpg	2	5	CS+	acquisition	MO
-tools/transmissionwrench.jpg	3	5	CS-	acquisition	MO
-animals/baboon.jpg	3	7	CS+	acquisition	MO
-tools/paintroller.jpg	3	5	CS-	acquisition	MN
-tools/chainsaw.jpg	2	5	CS-	baseline	MO
-tools/airpump.jpg	2	6	CS-	baseline	MN
-animals/ostrich.jpg	2	6	CS+	acquisition	DO
-tools/plow.jpg	2	2	CS-	acquisition	DO
-tools/toaster.jpg	3	7	CS-	baseline	MN
-animals/crow.jpg	2	6	CS+	acquisition	MO
-tools/sparkplug.jpg	3	3	CS-	extinction	DN
-animals/catfish.jpg	2	5	CS+	extinction	DO
-animals/snapper.jpg	3	6	CS+	acquisition	DN
-tools/weedeater.jpg	3	5	CS-	extinction	MN
-tools/beadingtool.jpg	2	3	CS-	acquisition	DO
-tools/blower.jpg	3	4	CS-	baseline	MN
-animals/rhino.jpg	3	7	CS+	baseline	DO
-animals/marmot.jpg	3	6	CS+	baseline	MO
-animals/mouse.jpg	3	7	CS+	extinction	MN
-animals/shrimp.jpg	2	5	CS+	baseline	MO
-tools/plunger.jpg	3	5	CS-	acquisition	MN
-tools/measuringdevice.jpg	3	3	CS-	extinction	MN
-tools/edger.jpg	3	3	CS-	baseline	
-animals/brown_bear.jpg	3	7	CS+	extinction	MO
-tools/scissors.jpg	2	7	CS-	acquisition	MO
-animals/herring.jpg	2	7	CS+	extinction	DO
-tools/squeegee.jpg	3	5	CS-	baseline	MN
-animals/giraffe.jpg	2	7	CS+	acquisition	MO
-animals/llama.jpg	3	5	CS+	baseline	DO
-tools/levelmount.jpg	3	2	CS-	extinction	
-tools/campingstove.jpg	3	4	CS-	baseline	MN
-animals/pigeon.jpg	2	7	CS+	acquisition	DO
-animals/salmon.jpg	3	7	CS+	baseline	MN
-tools/viceclamp.jpg	3	3	CS-	extinction	DN
-tools/beaker.jpg	2	4	CS-	extinction	MN
-animals/caterpillarpeacockmoth.jpg	3	5	CS+	acquisition	
-animals/quail.jpg	3	6	CS+	acquisition	MN
-animals/mole.jpg	2	6	CS+	acquisition	DO
-animals/boar.jpg	2	5	CS+	acquisition	MO
-animals/prayingmantis.jpg	2	5	CS+	acquisition	MO
-animals/hummingbird.jpg	2	7	CS+	acquisition	DO
-animals/herculesbeetle.jpg	2	5	CS+	acquisition	DO
-animals/leopard.jpg	2	7	CS+	acquisition	DO
-animals/partridge.jpg	3	6	CS+	extinction	MN
-animals/baldeagle.jpg	3	7	CS+	extinction	MN
-animals/chipmunk.jpg	3	7	CS+	extinction	DN
-animals/mink.jpg	2	4	CS+	extinction	DO
-animals/carp.jpg	3	7	CS+	extinction	
-animals/assassinbug.jpg	3	5	CS+	extinction	MN
-animals/seal.jpg	2	7	CS+	extinction	DO
-animals/camel.jpg	3	7	CS+	extinction	DO
-animals/halibut.jpg	2	5	CS+	baseline	MN
-animals/cricket.jpg	3	5	CS+	baseline	MO
-animals/horse.jpg	2	7	CS+	baseline	DO
-animals/finch.jpg	2	7	CS+	baseline	MN
-animals/aardvark.jpg	3	4	CS+	baseline	MO
-animals/perch.jpg	3	6	CS+	baseline	MO
-animals/hyena.jpg	2	5	CS+	baseline	DO
-animals/reindeer.jpg	3	5	CS+	baseline	MO
-tools/reflexhammer.jpg	2	3	CS-	acquisition	DO
-tools/gong.jpg	3	2	CS-	acquisition	MO
-tools/pliers.jpg	3	7	CS-	acquisition	MN
-tools/shoehorn.jpg	3	1	CS-	acquisition	MN
-tools/chisel.jpg	2	5	CS-	acquisition	MO
-tools/ropeandpulley.jpg	3	1	CS-	acquisition	DO
-tools/cheesegrater.jpg	2	7	CS-	acquisition	MO
-tools/rollingpin.jpg	3	5	CS-	acquisition	MO
-tools/wrench.jpg	2	7	CS-	extinction	MO
-tools/eraser.jpg	3	4	CS-	extinction	DO
-tools/tubeflaring.jpg	3	1	CS-	extinction	DN
-tools/sander.jpg	3	1	CS-	extinction	MN
-tools/spoon.jpg	2	7	CS-	extinction	MO
-tools/woodchipper.jpg	3	1	CS-	extinction	DN
-tools/broom.jpg	2	6	CS-	extinction	MN
-tools/measuringcups.jpg	3	5	CS-	extinction	DN
-tools/carpetblower.jpg	3	2	CS-	baseline	DN
-tools/duffelbag.jpg	2	5	CS-	baseline	MO
-tools/workbench.jpg	2	3	CS-	baseline	MO
-tools/microwave.jpg	3	6	CS-	baseline	DO
-tools/camera.jpg	3	3	CS-	baseline	DN
-tools/paintbrush.jpg	2	5	CS-	baseline	DN
-tools/videogamecontroller.jpg	2	6	CS-	baseline	DO
-tools/measuringtape.jpg	3	5	CS-	baseline	MN
-animals/pike.jpg	3	5	CS+	acquisition	MN
-animals/gerbil.jpg	2	6	CS+	acquisition	MO
-animals/cow.jpg	3	7	CS+	acquisition	MN
-animals/angelfish.jpg	2	5	CS+	acquisition	MO
-animals/waterbuffalo.jpg	3	4	CS+	acquisition	DO
-animals/porcupine.jpg	2	6	CS+	acquisition	DO
-animals/flea.jpg	3	5	CS+	acquisition	DO
-animals/dragonfly.jpg	2	5	CS+	acquisition	DN
-animals/rabbit.jpg	3	7	CS+	extinction	MN
-animals/palmcockatoo.jpg	3	4	CS+	extinction	MO
-animals/duck.jpg	2	7	CS+	extinction	DN
-animals/shark.jpg	2	6	CS+	extinction	MO
-animals/turkey.jpg	2	5	CS+	extinction	MN
-animals/anteater.jpg	3	4	CS+	extinction	MO
-animals/firebug.jpg	2	6	CS+	extinction	DO
-animals/snail.jpg	2	6	CS+	extinction	MO
-animals/goldfish.jpg	2	7	CS+	baseline	DO
-animals/cranebug.jpg	2	6	CS+	baseline	DO
-animals/caterpillarhawkmoth.jpg	2	5	CS+	baseline	DO
-animals/starfish.jpg	2	5	CS+	baseline	DO
-animals/skunk.jpg	3	5	CS+	baseline	MN
-animals/racoon.jpg	2	5	CS+	baseline	DO
-animals/zebra.jpg	2	6	CS+	baseline	MO
-animals/canary.jpg	2	6	CS+	baseline	MO
-tools/stove.jpg	3	4	CS-	acquisition	DN
-tools/ladder.jpg	2	6	CS-	acquisition	MO
-tools/electricbreaker.jpg	2	2	CS-	acquisition	MO
-tools/hairdryer.jpg	3	5	CS-	acquisition	MO
-tools/rake.jpg	3	3	CS-	acquisition	MO
-tools/wheelbarrow.jpg	3	3	CS-	acquisition	MN
-tools/faxmachine.jpg	3	4	CS-	acquisition	DO
-tools/drillbit.jpg	3	1	CS-	acquisition	MN
-tools/lawnmower.jpg	3	3	CS-	extinction	MO
-tools/ruler.jpg	2	3	CS-	extinction	
-tools/routerplane.jpg	2	1	CS-	extinction	MO
-tools/pruner.jpg	3	3	CS-	extinction	MN
-tools/benchdogs.jpg	2	1	CS-	extinction	DO
-tools/thermometer.jpg	3	1	CS-	extinction	DN
-tools/vegetablepeeler.jpg	3	1	CS-	extinction	
-tools/mallet.jpg	2	3	CS-	extinction	MO
-tools/extensioncord.jpg	2	3	CS-	baseline	MN
-tools/padlock.jpg	2	3	CS-	baseline	MN
-tools/bucket.jpg	3	2	CS-	baseline	DN
-tools/treadmill.jpg	2	3	CS-	baseline	MO
-tools/hammer.jpg	2	6	CS-	baseline	MO
-tools/solderingtorch.jpg	3	1	CS-	baseline	DN
-tools/jumpercables.jpg	2	4	CS-	baseline	DO
-tools/screwdriver.jpg	3	7	CS-	baseline	MO
+stimulus	source_memory	typicality	trial_type	encode_phase	recognition_memory	trial_number
+tools/gardenhose.jpg	3	7	CS-	acquisition	DO	6
+animals/tiger.jpg	2	7	CS+	acquisition	DO	23
+animals/mahimahi.jpg	3	4	CS+	extinction	DN	22
+animals/flamingo.jpg	2	7	CS+	baseline	DO	11
+tools/blackboard.jpg	3	6	CS-	extinction	MO	17
+animals/sheep.jpg	2	7	CS+	extinction	MO	5
+animals/dramaderry.jpg	3	4	CS+	extinction	DN	21
+tools/fan.jpg	3	6	CS-	extinction	MN	8
+animals/cat.jpg	2	7	CS+	baseline	DN	3
+animals/elephantafrican.jpg	2	7	CS+	baseline	DO	16
+tools/weldinghelmet.jpg	3	3	CS-	acquisition	DN	15
+tools/monkeywrench.jpg	2	6	CS-	baseline	MO	3
+animals/ant.jpg	3	7	CS+	extinction	DN	20
+animals/pelican.jpg	2	5	CS+	acquisition	MO	13
+tools/transmissionwrench.jpg	3	5	CS-	acquisition	MO	16
+animals/baboon.jpg	3	7	CS+	acquisition	MO	1
+tools/paintroller.jpg	3	5	CS-	acquisition	MN	8
+tools/chainsaw.jpg	2	5	CS-	baseline	MO	19
+tools/airpump.jpg	2	6	CS-	baseline	MN	16
+animals/ostrich.jpg	2	6	CS+	acquisition	DO	22
+tools/plow.jpg	2	2	CS-	acquisition	DO	23
+tools/toaster.jpg	3	7	CS-	baseline	MN	2
+animals/crow.jpg	2	6	CS+	acquisition	MO	15
+tools/sparkplug.jpg	3	3	CS-	extinction	DN	10
+animals/catfish.jpg	2	5	CS+	extinction	DO	8
+animals/snapper.jpg	3	6	CS+	acquisition	DN	6
+tools/weedeater.jpg	3	5	CS-	extinction	MN	7
+tools/beadingtool.jpg	2	3	CS-	acquisition	DO	24
+tools/blower.jpg	3	4	CS-	baseline	MN	18
+animals/rhino.jpg	3	7	CS+	baseline	DO	15
+animals/marmot.jpg	3	6	CS+	baseline	MO	17
+animals/mouse.jpg	3	7	CS+	extinction	MN	17
+animals/shrimp.jpg	2	5	CS+	baseline	MO	7
+tools/plunger.jpg	3	5	CS-	acquisition	MN	3
+tools/measuringdevice.jpg	3	3	CS-	extinction	MN	12
+tools/edger.jpg	3	3	CS-	baseline		4
+animals/brown_bear.jpg	3	7	CS+	extinction	MO	19
+tools/scissors.jpg	2	7	CS-	acquisition	MO	12
+animals/herring.jpg	2	7	CS+	extinction	DO	12
+tools/squeegee.jpg	3	5	CS-	baseline	MN	6
+animals/giraffe.jpg	2	7	CS+	acquisition	MO	17
+animals/llama.jpg	3	5	CS+	baseline	DO	13
+tools/levelmount.jpg	3	2	CS-	extinction		19
+tools/campingstove.jpg	3	4	CS-	baseline	MN	12
+animals/pigeon.jpg	2	7	CS+	acquisition	DO	16
+animals/salmon.jpg	3	7	CS+	baseline	MN	6
+tools/viceclamp.jpg	3	3	CS-	extinction	DN	22
+tools/beaker.jpg	2	4	CS-	extinction	MN	5
+animals/caterpillarpeacockmoth.jpg	3	5	CS+	acquisition		3
+animals/quail.jpg	3	6	CS+	acquisition	MN	19
+animals/mole.jpg	2	6	CS+	acquisition	DO	14
+animals/boar.jpg	2	5	CS+	acquisition	MO	2
+animals/prayingmantis.jpg	2	5	CS+	acquisition	MO	9
+animals/hummingbird.jpg	2	7	CS+	acquisition	DO	10
+animals/herculesbeetle.jpg	2	5	CS+	acquisition	DO	21
+animals/leopard.jpg	2	7	CS+	acquisition	DO	7
+animals/partridge.jpg	3	6	CS+	extinction	MN	10
+animals/baldeagle.jpg	3	7	CS+	extinction	MN	13
+animals/chipmunk.jpg	3	7	CS+	extinction	DN	14
+animals/mink.jpg	2	4	CS+	extinction	DO	16
+animals/carp.jpg	3	7	CS+	extinction		11
+animals/assassinbug.jpg	3	5	CS+	extinction	MN	7
+animals/seal.jpg	2	7	CS+	extinction	DO	6
+animals/camel.jpg	3	7	CS+	extinction	DO	23
+animals/halibut.jpg	2	5	CS+	baseline	MN	2
+animals/cricket.jpg	3	5	CS+	baseline	MO	24
+animals/horse.jpg	2	7	CS+	baseline	DO	21
+animals/finch.jpg	2	7	CS+	baseline	MN	5
+animals/aardvark.jpg	3	4	CS+	baseline	MO	4
+animals/perch.jpg	3	6	CS+	baseline	MO	22
+animals/hyena.jpg	2	5	CS+	baseline	DO	10
+animals/reindeer.jpg	3	5	CS+	baseline	MO	18
+tools/reflexhammer.jpg	2	3	CS-	acquisition	DO	13
+tools/gong.jpg	3	2	CS-	acquisition	MO	2
+tools/pliers.jpg	3	7	CS-	acquisition	MN	4
+tools/shoehorn.jpg	3	1	CS-	acquisition	MN	11
+tools/chisel.jpg	2	5	CS-	acquisition	MO	22
+tools/ropeandpulley.jpg	3	1	CS-	acquisition	DO	19
+tools/cheesegrater.jpg	2	7	CS-	acquisition	MO	1
+tools/rollingpin.jpg	3	5	CS-	acquisition	MO	20
+tools/wrench.jpg	2	7	CS-	extinction	MO	6
+tools/eraser.jpg	3	4	CS-	extinction	DO	15
+tools/tubeflaring.jpg	3	1	CS-	extinction	DN	18
+tools/sander.jpg	3	1	CS-	extinction	MN	3
+tools/spoon.jpg	2	7	CS-	extinction	MO	4
+tools/woodchipper.jpg	3	1	CS-	extinction	DN	24
+tools/broom.jpg	2	6	CS-	extinction	MN	11
+tools/measuringcups.jpg	3	5	CS-	extinction	DN	2
+tools/carpetblower.jpg	3	2	CS-	baseline	DN	9
+tools/duffelbag.jpg	2	5	CS-	baseline	MO	7
+tools/workbench.jpg	2	3	CS-	baseline	MO	21
+tools/microwave.jpg	3	6	CS-	baseline	DO	20
+tools/camera.jpg	3	3	CS-	baseline	DN	11
+tools/paintbrush.jpg	2	5	CS-	baseline	DN	24
+tools/videogamecontroller.jpg	2	6	CS-	baseline	DO	10
+tools/measuringtape.jpg	3	5	CS-	baseline	MN	22
+animals/pike.jpg	3	5	CS+	acquisition	MN	12
+animals/gerbil.jpg	2	6	CS+	acquisition	MO	18
+animals/cow.jpg	3	7	CS+	acquisition	MN	4
+animals/angelfish.jpg	2	5	CS+	acquisition	MO	20
+animals/waterbuffalo.jpg	3	4	CS+	acquisition	DO	11
+animals/porcupine.jpg	2	6	CS+	acquisition	DO	5
+animals/flea.jpg	3	5	CS+	acquisition	DO	8
+animals/dragonfly.jpg	2	5	CS+	acquisition	DN	24
+animals/rabbit.jpg	3	7	CS+	extinction	MN	2
+animals/palmcockatoo.jpg	3	4	CS+	extinction	MO	15
+animals/duck.jpg	2	7	CS+	extinction	DN	9
+animals/shark.jpg	2	6	CS+	extinction	MO	24
+animals/turkey.jpg	2	5	CS+	extinction	MN	4
+animals/anteater.jpg	3	4	CS+	extinction	MO	3
+animals/firebug.jpg	2	6	CS+	extinction	DO	1
+animals/snail.jpg	2	6	CS+	extinction	MO	18
+animals/goldfish.jpg	2	7	CS+	baseline	DO	20
+animals/cranebug.jpg	2	6	CS+	baseline	DO	9
+animals/caterpillarhawkmoth.jpg	2	5	CS+	baseline	DO	12
+animals/starfish.jpg	2	5	CS+	baseline	DO	19
+animals/skunk.jpg	3	5	CS+	baseline	MN	1
+animals/racoon.jpg	2	5	CS+	baseline	DO	23
+animals/zebra.jpg	2	6	CS+	baseline	MO	14
+animals/canary.jpg	2	6	CS+	baseline	MO	8
+tools/stove.jpg	3	4	CS-	acquisition	DN	7
+tools/ladder.jpg	2	6	CS-	acquisition	MO	14
+tools/electricbreaker.jpg	2	2	CS-	acquisition	MO	18
+tools/hairdryer.jpg	3	5	CS-	acquisition	MO	17
+tools/rake.jpg	3	3	CS-	acquisition	MO	9
+tools/wheelbarrow.jpg	3	3	CS-	acquisition	MN	10
+tools/faxmachine.jpg	3	4	CS-	acquisition	DO	21
+tools/drillbit.jpg	3	1	CS-	acquisition	MN	5
+tools/lawnmower.jpg	3	3	CS-	extinction	MO	20
+tools/ruler.jpg	2	3	CS-	extinction		13
+tools/routerplane.jpg	2	1	CS-	extinction	MO	9
+tools/pruner.jpg	3	3	CS-	extinction	MN	1
+tools/benchdogs.jpg	2	1	CS-	extinction	DO	14
+tools/thermometer.jpg	3	1	CS-	extinction	DN	21
+tools/vegetablepeeler.jpg	3	1	CS-	extinction		16
+tools/mallet.jpg	2	3	CS-	extinction	MO	23
+tools/extensioncord.jpg	2	3	CS-	baseline	MN	15
+tools/padlock.jpg	2	3	CS-	baseline	MN	1
+tools/bucket.jpg	3	2	CS-	baseline	DN	23
+tools/treadmill.jpg	2	3	CS-	baseline	MO	5
+tools/hammer.jpg	2	6	CS-	baseline	MO	8
+tools/solderingtorch.jpg	3	1	CS-	baseline	DN	14
+tools/jumpercables.jpg	2	4	CS-	baseline	DO	13
+tools/screwdriver.jpg	3	7	CS-	baseline	MO	17
