@@ -43,6 +43,7 @@ subjects = {'healthy':sub_args,
 gpal = list((wes_palettes['Zissou'][0],wes_palettes['Royal1'][1]))
 cpal = ['darkorange','grey']
 spal = list((wes_palettes['Darjeeling1'][-1],wes_palettes['Darjeeling1'][0],wes_palettes['Darjeeling1'][1],))
+spal = sns.color_palette(spal,n_colors=3,desat=.8)
 tpal = list((wes_palettes['Chevalier'][0],wes_palettes['Chevalier'][1]))
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}
@@ -51,7 +52,6 @@ phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}
 # HOME = '/home1/05426/ach3377/'
 # SCRATCH = '/scratch/05426/ach3377/'
 # gPPI_codebase = HOME + 'gPPI/'
-sns
 
 def mkdir(path,local=False):
     if not local and not os.path.exists(path):

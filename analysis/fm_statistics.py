@@ -87,7 +87,7 @@ for encode_phase in phases:
             print('\n')
 
 for encode_phase in phases:
-    # print(encode_phase)
+    print(encode_phase)
     print(pg.wilcoxon(df.loc[('CS+',encode_phase,'acquisition'),'prop'],df.loc[('CS-',encode_phase,'acquisition'),'prop'],tail='greater'))
 
 '''CORRELATIONS WITH RECOGNITION MEMORY'''
@@ -112,9 +112,9 @@ df = pd.read_csv('../memory_difference_scores.csv'
 # pg.corr(df.loc[('ptsd','extinction','acquisition'),'cr'],df.loc[('ptsd','extinction','acquisition'),'mem_prop'])
 
 #group collapse
-pg.corr(df.loc[('baseline','acquisition'),'mem_count'],df.loc[('baseline','acquisition'),'cr'])[['r','p-val']]
-pg.corr(df.loc[('acquisition','acquisition'),'mem_count'],df.loc[('acquisition','acquisition'),'cr'])[['r','p-val']]
-pg.corr(df.loc[('extinction','acquisition'),'mem_count'],df.loc[('extinction','acquisition'),'cr'])[['r','p-val']]
+pg.corr(df.loc[('baseline','acquisition'),'prop'],df.loc[('baseline','acquisition'),'cr'])[['r','p-val']]
+pg.corr(df.loc[('acquisition','acquisition'),'prop'],df.loc[('acquisition','acquisition'),'cr'])[['r','p-val']]
+pg.corr(df.loc[('extinction','acquisition'),'prop'],df.loc[('extinction','acquisition'),'cr'])[['r','p-val']]
 
 q = sns.lmplot(data=df.reset_index().query('response_phase == "acquisition"'),
             x='mem_count',y='cr',col='encode_phase',palette=spal[0])

@@ -7,8 +7,8 @@ require(dplyr)
 #require(emmeans)
 #require(irr)
 
-setwd("C:/Users/ACH/Documents/fearmem")
-
+#setwd("C:/Users/ACH/Documents/fearmem")
+setwd('/Users/ach3377/Documents/fearmem')
 df <- read.csv('cleaned_corrected_recognition.csv')
 str(df)
 df$subject <- as.factor(df$subject)
@@ -19,6 +19,7 @@ full.aov <- aovperm(full.form,df,np=10000)
 collapse.form <- cr ~ condition * encode_phase + Error(subject/(condition*encode_phase))
 collapse.aov <- aovperm(collapse.form,df,np=10000)
 select(collapse.aov$table, dfn, dfd, F, "permutation P(>F)")
+ezANOVA(df,dv=cr,wid=subject,within=.(condition,encode_phase))
 
 #source memory
 df <- read.csv('cleaned_avg_sm.csv')
@@ -31,6 +32,7 @@ full.source.aov <- aovperm(full.source.form,df,np=10000)
 collapse.source.form <- prop ~ response_phase * condition * encode_phase + Error(subject/(response_phase * condition * encode_phase))
 collapse.source.aov <- aovperm(collapse.source.form,df,np=10000)
 select(collapse.source.aov$table, dfn, dfd, F, "permutation P(>F)")
+ezANOVA(df,dv=prop,wid=subject,within=.(condition,encode_phase,response_phase))
 
 #subset baseline
 baseline = df[with(df,encode_phase == 'baseline'),]
