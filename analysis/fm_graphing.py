@@ -133,7 +133,6 @@ q = sns.catplot(data=df,x='trial_number',y='sub_prop',
 
 '''SOURCE MEMORY BY EARLY/LATE'''
 df = pd.read_csv('../cleaned_full_sm.csv').rename(columns={'trial_type':'condition'})
-df.source_memory = df.source_memory.apply(lambda x: phase_convert[x])
 df['half'] = df.trial_number.apply(lambda x: 'early' if x <= 12 else 'late')
 df = df.groupby(['subject','encode_phase','condition','half','source_memory'])['stimulus'].count().reset_index()
 df = df.rename(columns={'stimulus':'prop'})
@@ -141,6 +140,10 @@ df.prop = df.prop / 12
 q = sns.catplot(data=df[df.encode_phase == 'baseline'],x='half',y='prop',
                 hue='source_memory',hue_order=phases,palette=spal,
                 col='condition',kind='bar')
+#quick stats i know its bad here
+df = df.set_index(['encode_phase','half','condition','source_memory','subject']).sort_index()
+pg.wilcoxon(df.loc[('baseline','early','CS+','acquisition'),'prop'], df.loc[('baseline','late','CS+','acquisition'),'prop'])
+pg.wilcoxon(df.loc[('baseline','early','CS-','acquisition'),'prop'], df.loc[('baseline','late','CS-','acquisition'),'prop'])
 
 
 '''RECOG AND SOURCE MEM CORRELATIONS'''
@@ -294,6 +297,10 @@ with sns.axes_style('whitegrid'):
         ax.plot([-.1,.1],[csp,csm],c='grey',alpha=.7)
     plt.tight_layout()
 
+'''TYPICALITY WITH PHASE'''
+df = pd.read_csv('../cleaned_avg_ty.csv')
+# df = df.set_index(['condition','encode_phase','subject'])
+sns.pointplot(data=df,x='encode_phase',y='typicality',hue='condition',palette=cpal,dodge=True)
 '''TYPICALITY COLLAPSED BY STIM'''
 df = pd.read_csv('../cleaned_full_sm.csv'
         ).rename(columns={'trial_type':'condition'})
@@ -339,20 +346,24 @@ with sns.axes_style('whitegrid'):
 df = pd.read_csv('../cleaned_full_sm.csv'
         ).rename(columns={'trial_type':'condition'})
 
-stim = df.groupby(['condition','stimulus','subject']).mean()
+stim = df.groupby(['condition','stimulus']).mean()
 stim = (stim.loc['CS+'] - stim.loc['CS-']).reset_index().sort_values(by='typicality',ascending=False)
 stim['category'] = stim.stimulus.apply(lambda x: 'animals' if 'animals' in x else 'tools')
 
-stim_order = df.groupby(['stimulus']).mean().reset_index().sort_values(by='typicality',ascending=False).stimulus.values
+stim_order = stim.groupby(['stimulus']).mean().reset_index().sort_values(by='typicality',ascending=False).stimulus.values
+stim_colors = [tpal[0] if stim[0] == 'a' else tpal[1] for stim in stim_order]
 
+stim.typicality = (stim.typicality / 7) * 100
 with sns.axes_style('whitegrid'):
     fig, ax = plt.subplots(figsize=(8,5))
-    sns.pointplot(data=stim,x='stimulus',y='typicality',hue='category',
-                    order=stim_order,ax=ax, palette=tpal, hue_order=['animals','tools'])
+    # sns.pointplot(data=stim,x='stimulus',y='typicality',hue='category',
+    #                 order=stim_order,ax=ax, palette=tpal, hue_order=['animals','tools'],join=False)
+    sns.barplot(data=stim,x='stimulus',y='typicality',order=stim_order,ax=ax, palette=stim_colors)
     ax.set_xticklabels('')
     # ax.set_ylim(1,7)
     ax.set_ylabel('Typicality (CS+ - CS-)')
     ax.set_xlabel('Stimulus')
+ax.yaxis.set_major_formatter(mtick.PercentFormatter())
 
 '''TYPICALITY DISPLOTS'''
 df = pd.read_csv('../cleaned_full_sm.csv'
@@ -423,4 +434,6 @@ for i, con in enumerate(cons):
     ax[i].set_xlabel('Typicality')
 
 ax[0].set_ylabel('High confidence "hit"')
+
+
 

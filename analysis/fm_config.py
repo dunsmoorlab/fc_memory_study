@@ -7,15 +7,16 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pingouin as pg
+import matplotlib.ticker as mtick
 
 from matplotlib import rcParams
 from wesanderson import wes_palettes
 from numpy.random import RandomState
 from sklearn.linear_model import LogisticRegression
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import MultipleLocator, IndexLocator, FixedLocator
 from scipy.special import expit
 from matplotlib.patches import Patch
-import matplotlib.ticker as mtick
+from scipy.stats import chisquare, zscore
 
 sns.set_context('notebook',font_scale=1.4)
 sns.set_style('ticks', {'axes.spines.right':False, 'axes.spines.top':False})
@@ -47,6 +48,7 @@ spal = sns.color_palette(spal,n_colors=3,desat=.8)
 tpal = list((wes_palettes['Chevalier'][0],wes_palettes['Chevalier'][1]))
 cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)
 phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}
+phase2int = {'baseline':1,'acquisition':2,'extinction':3}
 
 # WORK = '/work/05426/ach3377/lonestar/'
 # HOME = '/home1/05426/ach3377/'
@@ -61,7 +63,7 @@ def lgroup(x):
     else: return 'healthy'
 
 #these are BIDS-app made
-data_dir = 'C:\\Users\\ACH\\Documents\\fearmem'
+data_dir = os.path.join(os.path.expanduser('~'),'Documents','fearmem')
 bids_dir = os.path.join(data_dir,'fm-bids')
 
 # bids_dir = os.path.join(SCRATCH,'fc-bids')
@@ -282,4 +284,4 @@ def onesample_bdm(x,mu=0,tail='two-tailed',n_boot=10000):
     if p == 0.0: p = 1/n_boot
 
     res = pd.DataFrame({'mu':mu,'avg':avg,'CI_l':ci[0],'CI_u':ci[1],'p':p,'tail':tail},index=[0])
-    print(res.round(4))
+    return res.round(4)

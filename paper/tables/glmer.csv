@@ -1,0 +1,9 @@
+,2.50%,97.50%
+.sig01,0.76064719,1.2577339
+(Intercept),-0.04497149,0.6851709
+factor(encode_phase)baseline,-0.06085466,0.2498057
+factor(encode_phase)extinction,-0.69620002,-0.380324
+factor(condition)CS+,0.31999985,0.5798942
+factor(source_memory)baseline,-0.9724225,-0.642738
+factor(source_memory)extinction,-1.29585256,-0.9762248
+typicality,0.15826923,0.2884073

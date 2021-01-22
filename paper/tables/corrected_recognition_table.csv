@@ -1,0 +1,9 @@
+Temporal Context,CS Type,Mean,95% CI,Std. Error
+pre-conditioning,CS+,0.4106,"[0.3648, 0.4579]",0.0239
+pre-conditioning,CS-,0.356,"[0.3079, 0.4051]",0.0251
+fear conditioning,CS+,0.4819,"[0.4153, 0.5477]",0.0343
+fear conditioning,CS-,0.3023,"[0.2417, 0.3639]",0.0319
+post-conditioning,CS+,0.3023,"[0.2426, 0.3644]",0.0311
+post-conditioning,CS-,0.2181,"[0.1769, 0.2616]",0.0224
+,CS+,0.1403,"[0.1037, 0.181]",0.0199
+,CS-,0.1218,"[0.0861, 0.1611]",0.0194

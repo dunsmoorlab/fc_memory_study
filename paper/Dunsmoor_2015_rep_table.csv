@@ -1,0 +1,9 @@
+Temporal Context,CS Type,DO,MO,MN,DN
+baseline,CS+,0.551,0.226,0.134,0.089
+baseline,CS-,0.478,0.257,0.172,0.093
+acquisition,CS+,0.622,0.227,0.094,0.056
+acquisition,CS-,0.424,0.254,0.217,0.106
+extinction,CS+,0.443,0.268,0.181,0.109
+extinction,CS-,0.34,0.276,0.24,0.144
+foil,CS+,0.157,0.217,0.289,0.337
+foil,CS-,0.134,0.199,0.307,0.36

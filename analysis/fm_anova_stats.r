@@ -50,10 +50,8 @@ mem.res <- aovperm(mem.form,extinction,np=10000) #change data here
 
 #regular anovas here for typicality
 df <- read.csv('cleaned_avg_ty.csv')
-ty_aov <- ezANOVA(df,dv=.(typicality),wid=.(subject),within=.(condition,encode_phase),between=.(group))
-
-
-
+ty_aov <- ezANOVA(df,dv=.(typicality),wid=.(subject),within=.(condition,encode_phase))
+ty_aov <- ezANOVA(df,dv=.(typicality),wid=.(subject),within=.(condition),between=.(group))
 
 
 #source memory lmm
@@ -75,7 +73,6 @@ anova(wo_mem,w_mem)
 glm(hc_acc~1+(1|subject), family = "binomial",baseline)
 
 
-
-
+####chisquare
 
 

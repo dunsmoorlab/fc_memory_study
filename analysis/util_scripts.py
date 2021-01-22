@@ -88,9 +88,32 @@ for sub in xcl_sub_args:
     for phase in phases:
         sm.loc[(sub,phase),'cr'] = cr.loc[(sub,phase),'cr']
         sm.loc[(sub,phase),'hr'] = cr.loc[(sub,phase),'hr']
-sm = sm.reset_index()
-sm['group'] = sm.subject.apply(lgroup)
-sm.to_csv('../memory_difference_scores.csv',index=False)
+# sm = sm.reset_index()
+# sm['group'] = sm.subject.apply(lgroup)
+
+#and typicality
+ty = pd.read_csv('../cleaned_avg_ty.csv'
+                ).drop(columns='group'
+                ).groupby(['condition','subject','encode_phase']
+                ).mean().sort_index()
+ty = (ty.loc['CS+'] - ty.loc['CS-'])
+sm['typicality'] = 0
+for sub in xcl_sub_args:
+    for phase in phases:
+        sm.loc[(sub,phase),'typicality'] = ty.loc[(sub,phase),'typicality']
+
+#and SCR
+scr = pd.read_csv('../SCR_manually_scored/day1_scr_scored.csv'
+                ).rename(columns={'phase':'encode_phase'}).drop(columns='group')
+scr.encode_phase = scr.encode_phase.apply(lambda x: 'acquisition' if x == 'fear_conditioning' else x)
+scr = scr.groupby(['condition','subject','encode_phase']).mean()
+scr = (scr.loc['CS+'] - scr.loc['CS-'])
+sm['scr'] = 0
+for sub in xcl_sub_args:
+    for phase in phases:
+        sm.loc[(sub,phase),'scr'] = scr.loc[(sub,phase),'scr']
+
+sm.to_csv('../memory_difference_scores.csv')
 
 
 

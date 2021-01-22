@@ -1,0 +1,19 @@
+Temporal Context,CS Type,Response,Mean,95% CI,P
+pre-conditioning,CS+,pre,0.2684,"[0.2145, 0.3235]",0.0252
+pre-conditioning,CS+,cond.,0.4645,"[0.3946, 0.5343]",0.0001
+pre-conditioning,CS+,post,0.2672,"[0.2194, 0.3186]",0.0146
+pre-conditioning,CS-,pre,0.3284,"[0.2819, 0.3775]",0.8544
+pre-conditioning,CS-,cond.,0.3272,"[0.2757, 0.3787]",0.837
+pre-conditioning,CS-,post,0.3444,"[0.2978, 0.3934]",0.6678
+fear conditioning,CS+,pre,0.2108,"[0.1605, 0.2647]",0.0001
+fear conditioning,CS+,cond.,0.5821,"[0.5086, 0.6556]",0.0001
+fear conditioning,CS+,post,0.2071,"[0.1569, 0.2659]",0.0004
+fear conditioning,CS-,pre,0.3125,"[0.2537, 0.3701]",0.5046
+fear conditioning,CS-,cond.,0.3309,"[0.2745, 0.3897]",0.9252
+fear conditioning,CS-,post,0.3566,"[0.3039, 0.4105]",0.395
+post-conditioning,CS+,pre,0.212,"[0.1618, 0.2647]",0.0001
+post-conditioning,CS+,cond.,0.4657,"[0.4069, 0.527]",0.0001
+post-conditioning,CS+,post,0.3223,"[0.2671, 0.3811]",0.7158
+post-conditioning,CS-,pre,0.2966,"[0.2488, 0.3456]",0.1416
+post-conditioning,CS-,cond.,0.3137,"[0.277, 0.3505]",0.3032
+post-conditioning,CS-,post,0.3897,"[0.3419, 0.4375]",0.017
