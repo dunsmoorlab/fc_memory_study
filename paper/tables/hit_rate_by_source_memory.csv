@@ -1,0 +1,19 @@
+Temporal Context,CS Type,Response,Mean,Std. Error
+pre-conditioning,CS+,pre,0.5571,0.0336
+pre-conditioning,CS+,cond.,0.6517,0.0245
+pre-conditioning,CS+,post,0.3945,0.0332
+pre-conditioning,CS-,pre,0.4291,0.0303
+pre-conditioning,CS-,cond.,0.5506,0.0305
+pre-conditioning,CS-,post,0.4128,0.0294
+fear conditioning,CS+,pre,0.5,0.0382
+fear conditioning,CS+,cond.,0.6968,0.0211
+fear conditioning,CS+,post,0.426,0.0382
+fear conditioning,CS-,pre,0.3412,0.0297
+fear conditioning,CS-,cond.,0.5741,0.0301
+fear conditioning,CS-,post,0.3127,0.0272
+post-conditioning,CS+,pre,0.3642,0.0367
+post-conditioning,CS+,cond.,0.5421,0.0256
+post-conditioning,CS+,post,0.3194,0.0288
+post-conditioning,CS-,pre,0.2934,0.0293
+post-conditioning,CS-,cond.,0.4453,0.0311
+post-conditioning,CS-,post,0.2767,0.0251

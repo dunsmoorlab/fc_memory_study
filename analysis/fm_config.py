@@ -165,6 +165,7 @@ class bids_meta(object):
     def load(self,task):
         try:
             file = pd.read_csv(os.path.join(self.events,self.fsub+'_task-'+task+'_events.tsv'),sep='\t')
+            file['subject'] = self.num
             return file
         except FileNotFoundError:
             pass

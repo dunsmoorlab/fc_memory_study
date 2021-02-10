@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"sourec",
+				"source_memory"
+			],
+			[
+				"set_xla",
+				"set_xticklabels"
+			],
+			[
+				"sub",
+				"subject"
+			],
+			[
+				"acq",
+				"acquisition"
+			],
+			[
 				"mem",
 				"memory"
 			],
@@ -324,10 +340,6 @@
 				"sub-FC010_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm"
 			],
 			[
-				"sub",
-				"subplots"
-			],
-			[
 				"mas",
 				"mask_dat"
 			],
@@ -502,91 +514,34 @@
 			[
 				"dcm2",
 				"dcm2bids_call"
-			],
-			[
-				"en",
-				"encode"
-			],
-			[
-				"graph",
-				"graphdat"
-			],
-			[
-				"get",
-				"get_xlim"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "fm_statistics.py",
-			"settings":
-			{
-				"buffer_size": 18470,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "util_scripts.py",
-			"settings":
-			{
-				"buffer_size": 5245,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "paper_graphics.py",
 			"settings":
 			{
-				"buffer_size": 21171,
+				"buffer_size": 21915,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 12 files for \"skipped\" (case sensitive)\n\n/Users/ach3377/Documents/fearmem/analysis/fm_statistics.py:\n    1  from fm_behavioral import *\n    2: from robust_corr import skipped_corr\n    3  '''RECOGNITION MEMORY'''\n    4  #a priori memory enhancement effect (CS+ > CS-)\n    .\n  179  df = df.set_index(['encode_phase','subject']).sort_index()\n  180  for phase in phases:\n  181:     skipped_corr(df.loc[phase,'prop'],df.loc[phase,'cr'])\n  182:     skipped_corr(df.loc[phase,'typicality'],df.loc[phase,'cr'])\n  183      \n  184  '''super-subject logistic regression'''\n\n/Users/ach3377/Documents/fearmem/analysis/paper_graphics.py:\n    1  from fm_config import *\n    2: from robust_corr import skipped_corr\n    3  from paper_graphics_style import *\n    4  \n    .\n   84  fig, ax = plt.subplots(1,3,sharey=True,sharex=True,figsize=mm2inch(200,200*.4))\n   85  for p, phase in enumerate(['baseline','acquisition','extinction']):\n   86:     skipped_corr(x=df.loc[phase,'prop'], y=df.loc[phase,'cr'], ax=ax[p], color=wes_palettes['Royal1'][0])\n   87      # sns.regplot(data=df[df.encode_phase == phase], x='prop', y='cr',ax=ax[p],color=spal[1])\n   88      ax[p].set_xlabel('')\n   ..\n   94  \n   95  rcParams['mathtext.default'] = 'regular'\n   96: ax[0].text(-0.25,.5,'$r_{skipped}$ = 0.34*',fontsize=rcParams['font.size'],va='bottom')\n   97: ax[1].text(-0.25,.5,'$r_{skipped}$ = 0.36*',fontsize=rcParams['font.size'],va='bottom')\n   98: ax[2].text(-0.25,.5,'$r_{skipped}$ = 0.37*',fontsize=rcParams['font.size'],va='bottom')\n   99  \n  100  '''Fig. 4 source memory logistic predictions'''\n\n/Users/ach3377/Documents/fearmem/analysis/robust_corr.py:\n   85  \n   86  \n   87: def plot_full_skipped_corr(x,y,title):\n   88      from pingouin.utils import _is_sklearn_installed\n   89      _is_sklearn_installed(raise_error=True)\n   ..\n  160      plt.tight_layout()\n  161  \n  162: def skipped_corr(x, y, ax=None, color='blue'):\n  163  \n  164      from pingouin.utils import _is_sklearn_installed\n\n10 matches across 3 files\n\n\nSearching 12 files for \"convert\" (case sensitive)\n\n/Users/ach3377/Documents/fearmem/analysis/fm_behavioral.py:\n   34              df['hc_acc'] = df.recognition_memory.apply(lambda x: 1 if x == 'DO' else 0)\n   35  \n   36:             phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}\n   37:             df.source_memory = df.source_memory.apply(lambda x: phase_convert[x])\n   38  \n   39              for con in cons:\n\n/Users/ach3377/Documents/fearmem/analysis/fm_config.py:\n   48  tpal = list((wes_palettes['Chevalier'][0],wes_palettes['Chevalier'][1]))\n   49  cpoint = sns.color_palette(cpal,n_colors=2,desat=.75)\n   50: phase_convert = {1:'baseline',2:'acquisition',3:'extinction'}\n   51  phase2int = {'baseline':1,'acquisition':2,'extinction':3}\n   52  \n\n/Users/ach3377/Documents/fearmem/analysis/fm_graphing.py:\n  123  '''SOURCE MEMORY BY TRIAL NUMBER'''\n  124  df = pd.read_csv('../cleaned_full_sm.csv').rename(columns={'trial_type':'condition'})\n  125: df.source_memory = df.source_memory.apply(lambda x: phase_convert[x])\n  126  df = df.groupby(['encode_phase','condition','trial_number','source_memory'])['subject'].count().reset_index()\n  127  df = df.rename(columns={'subject':'sub_prop'})\n\n/Users/ach3377/Documents/fearmem/analysis/fm_statistics.py:\n  193      \n  194      onehot = pd.get_dummies(dat.source_memory)\n  195:     onehot = onehot.rename(columns=phase_convert)\n  196  \n  197      for i in range(n_boot):\n  ...\n  360          ).set_index(['subject']\n  361          ).sort_index()\n  362: # df.source_memory = df.source_memory.apply(lambda x: phase_convert[x])\n  363  df = df.drop(columns=['stimulus','trial_number','group','recognition_memory'])\n  364  # df = pd.get_dummies(df,columns=['encode_phase','source_memory','condition'])\n\n/Users/ach3377/Documents/fearmem/analysis/paper_graphics.py:\n  137      # pvals = pvals.reset_index()\n  138      pvals['encode_phase'] = phase\n  139:     pvals['star'] = pvals.p.apply(p_convert)\n  140      pvals.to_csv(f'../paper/{phase}_sm_betas.csv')\n  141  \n  ...\n  152              ax[i].text(xtick+rpos[r],pvals.loc[(con,response),topbot],pvals.loc[(con,response),'star'],ha='center',va=va)\n  153      #     #get the mean and 95%CI out here, and just copy paste into excel I think\n  154:     #     acq_bsl = p_convert(1 - (df.loc[(con,'acquisition'),'beta'].values > df.loc[(con,'baseline'),'beta'].values).mean())\n  155:     #     acq_ext = p_convert(1 - (df.loc[(con,'acquisition'),'beta'].values > df.loc[(con,'extinction'),'beta'].values).mean())\n  156      #     print(con, phase, acq_bsl, acq_ext)\n  157      #     y = pvals.loc[(con,'acquisition'),'topval']+.2\n  ...\n  328  pvals['topval'] = df.groupby(['phase','condition']).max()\n  329  # pvals = pvals.reset_index()\n  330: pvals['star'] = pvals.p.apply(p_convert)\n  331  pvals.to_csv(f'../paper/typicality_betas.csv')\n  332  pvals.loc[('baseline','CS+'),'star'] = '~'\n\n/Users/ach3377/Documents/fearmem/analysis/paper_graphics_style.py:\n    6  rcParams['savefig.dpi'] = 900\n    7  \n    8: def p_convert(x):\n    9      if x < .001: return '***'\n   10      elif x < .01: return '**'\n\n/Users/ach3377/Documents/fearmem/analysis/tables.py:\n    1: from paper_graphics_style import p_convert\n    2  '''code for grabbing all the data necessary for the tables of memory data'''\n    3  ctx_rname = {'baseline':'pre-conditioning','acquisition':'fear conditioning','extinction':'post-conditioning','':''}\n    .\n   93                                    'response_phase':'Response'})\n   94  table = table[['Temporal Context','CS Type','Response','Mean','95% CI','P']]\n   95: table['_sig'] = table.P.apply(p_convert) \n   96  table.round(4).to_csv('../paper/source_memory_table.csv',index=False)\n   97  \n   ..\n  114  table.P = table.P.apply(lambda x: 0.0001 if x == 0 else x)\n  115  table = table.sort_values(by=['Temporal Context','CS Type','Response'])\n  116: table['_sig'] = table.P.apply(p_convert) \n  117  table.round(4).to_csv('../paper/souce_memory_betas_table.csv',index=False)\n  118  #do the stuff\n  ...\n  129                             'p':'P'})\n  130  table = table.sort_values(by=['Temporal Context','CS Type'])\n  131: table['_sig'] = table.P.apply(p_convert)\n  132  table.round(4).to_csv('../paper/tables/typicality_table.csv',index=False)\n  133  \n\n/Users/ach3377/Documents/fearmem/analysis/util_scripts.py:\n    6  from fm_behavioral import *\n    7  \n    8: # def sm_convert(x):\n    9  #     if x == 1: return 'baseline'\n   10  #     elif x == 2: return 'acquisition'\n\n16 matches across 8 files\n",
-			"settings":
-			{
-				"buffer_size": 6532,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "robust_corr.py",
-			"settings":
-			{
-				"buffer_size": 7629,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "paper_graphics_style.py",
-			"settings":
-			{
-				"buffer_size": 3220,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "tables.py",
 			"settings":
 			{
-				"buffer_size": 6750,
+				"buffer_size": 8244,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "fm_graphing.py",
+			"file": "fm_statistics.py",
 			"settings":
 			{
-				"buffer_size": 17628,
+				"buffer_size": 18629,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -596,14 +551,6 @@
 			"settings":
 			{
 				"buffer_size": 6071,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "fm_config.py",
-			"settings":
-			{
-				"buffer_size": 10992,
 				"line_ending": "Windows"
 			}
 		}
@@ -712,17 +659,26 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/ach3377/Documents/fearmem/analysis"
+		"/C/Users/ACH/Documents/fearmem/analysis"
 	],
 	"file_history":
 	[
+		"/C/Users/ACH/Documents/fearmem/analysis/tables.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/fm_config.py",
+		"/D/fc-bids/task-acquisition_events.json",
+		"/C/Users/ACH/Documents/fearmem/analysis/paper_graphics.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/fm_statistics.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/util_scripts.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/fm_behavioral.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/fm_graphing.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/paper_graphics_style.py",
+		"/C/Users/ACH/Documents/fearmem/analysis/robust_corr.py",
 		"/Users/ach3377/Documents/fearmem/analysis/robust_corr.py",
 		"/Users/ach3377/Documents/fearmem/analysis/fm_config.py",
 		"/Users/ach3377/Documents/fearmem/analysis/fm_graphing.py",
 		"/Users/ach3377/Documents/fearmem/analysis/util_scripts.py",
 		"/Users/ach3377/Documents/achennings.github.io/index.md",
 		"/Users/ach3377/Documents/cgrab.py",
-		"/C/Users/ACH/Documents/fearmem/analysis/fm_behavioral.py",
 		"/C/Users/ACH/Downloads/fslinstaller.py",
 		"/C/Users/ACH/Desktop/basic_model_lvl2_cope_input_test.gfeat/design.fsf",
 		"/C/Users/ACH/Desktop/source_memory_lvl2.gfeat/design.con",
@@ -734,8 +690,6 @@
 		"/C/Program Files (x86)/Mendeley Desktop/MendeleyDesktop.exe.manifest",
 		"/C/Users/ACH/Documents/ExPress/analysis/ex_config.py",
 		"/D/FearCon/CodeBase/fc_behavioral.py",
-		"/C/Users/ACH/Documents/fearmem/analysis/util_scripts.py",
-		"/C/Users/ACH/Documents/fearmem/analysis/fm_config.py",
 		"/D/FearCon/CodeBase/PCL_response.py",
 		"/D/FearCon/CodeBase/mvpa_analysis_graphing.py",
 		"/D/FearCon/CodeBase/nbc19.py",
@@ -836,18 +790,11 @@
 		"/C/Users/ACH/Desktop/standard/test6.mat",
 		"/C/Users/ACH/Desktop/standard/test12.mat",
 		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/ExPress/analysis/ex_behavioral.py",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_acquisition_rsa.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_baseline_rsa.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_extinction_rsa.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_acquisition.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_baseline.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_extinction.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_localizer_run-01.fsf",
-		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/lss/template_lss_localizer_run-02.fsf"
+		"/C/Users/ACH/Dropbox (LewPeaLab)/Gus/gPPI/feats/template_acquisition_rsa.fsf"
 	],
 	"find":
 	{
-		"height": 50.0
+		"height": 51.4285714286
 	},
 	"find_in_files":
 	{
@@ -862,6 +809,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"locator",
+			"conditioning",
+			"pre",
+			"cleaned_avg_sm",
+			"pre",
 			"paired_barplot",
 			"legend_ele",
 			"convert",
@@ -984,12 +936,7 @@
 			"reg_res",
 			"split",
 			"group",
-			"group_",
-			"subj",
-			"resamp",
-			"apply",
-			"range(",
-			"expit"
+			"group_"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1012,60 +959,59 @@
 			[
 				{
 					"buffer": 0,
-					"file": "fm_statistics.py",
+					"file": "paper_graphics.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18470,
+						"buffer_size": 21915,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7387,
-								7394
+								11817,
+								11859
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 8352.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "util_scripts.py",
+					"file": "tables.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5245,
+						"buffer_size": 8244,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2270,
-								2281
+								3313,
+								3313
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1508.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1073,19 +1019,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "paper_graphics.py",
+					"file": "fm_statistics.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21171,
+						"buffer_size": 18629,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12652,
-								12666
+								9237,
+								9237
 							]
 						],
 						"settings":
@@ -1095,7 +1041,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7201.0,
+						"translation.y": 5365.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1103,275 +1049,6 @@
 				},
 				{
 					"buffer": 3,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6532,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										177,
-										184
-									],
-									[
-										388,
-										395
-									],
-									[
-										453,
-										460
-									],
-									[
-										696,
-										703
-									],
-									[
-										938,
-										945
-									],
-									[
-										1267,
-										1274
-									],
-									[
-										1362,
-										1369
-									],
-									[
-										1457,
-										1464
-									],
-									[
-										1679,
-										1686
-									],
-									[
-										1870,
-										1877
-									],
-									[
-										2249,
-										2256
-									],
-									[
-										2382,
-										2389
-									],
-									[
-										2649,
-										2656
-									],
-									[
-										3038,
-										3045
-									],
-									[
-										3396,
-										3403
-									],
-									[
-										3590,
-										3597
-									],
-									[
-										3961,
-										3968
-									],
-									[
-										4290,
-										4297
-									],
-									[
-										4424,
-										4431
-									],
-									[
-										4795,
-										4802
-									],
-									[
-										5034,
-										5041
-									],
-									[
-										5216,
-										5223
-									],
-									[
-										5632,
-										5639
-									],
-									[
-										5917,
-										5924
-									],
-									[
-										6187,
-										6194
-									],
-									[
-										6404,
-										6411
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								3966,
-								3966
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2022.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "robust_corr.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4665,
-								4665
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "paper_graphics_style.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3220,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								470,
-								1931
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "tables.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6750,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3396,
-								3396
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "fm_graphing.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17628,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								15139,
-								14021
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "fm_behavioral.py",
 					"semi_transient": false,
 					"settings":
@@ -1383,8 +1060,8 @@
 						"selection":
 						[
 							[
-								4153,
-								4153
+								3963,
+								3963
 							]
 						],
 						"settings":
@@ -1394,40 +1071,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2465.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "fm_config.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10992,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								486,
-								486
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1486,6 +1133,22 @@
 		"selected_items":
 		[
 			[
+				"tabl",
+				"tables.py"
+			],
+			[
+				"paper",
+				"paper_graphics.py"
+			],
+			[
+				"",
+				"fm_behavioral.py"
+			],
+			[
+				"fm_statistics",
+				"fm_statistics.py"
+			],
+			[
 				"rob",
 				"robust_corr.py"
 			],
@@ -1504,10 +1167,6 @@
 			[
 				"beh",
 				"fm_behavioral.py"
-			],
-			[
-				"",
-				"paper_graphics.py"
 			],
 			[
 				"gra",

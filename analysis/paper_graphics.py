@@ -248,21 +248,21 @@ with sns.axes_style('whitegrid'):
     ax.legend(handles=legend_elements,ncol=2,frameon=False,title='CS type',loc='lower center',bbox_to_anchor=(.5,-.04))
     ax.yaxis.set_major_locator(MultipleLocator(1))
     ax.yaxis.set_minor_locator(MultipleLocator(.5))
-    sns.despine(ax=ax,left=True,bottom=True)
+    # sns.despine(ax=ax,left=True,bottom=True)
     ax.grid(True,'both','y')
     plt.tight_layout()
 
 '''Typicality CS+ vs CS- by phase'''
 df = pd.read_csv('../cleaned_avg_ty.csv')
-fig = plt.figure(figsize=mm2inch(200,200*.4))
-gs = fig.add_gridspec(1,2)
+fig = plt.figure(figsize=mm2inch(100,200))
+gs = fig.add_gridspec(3,1)
 with sns.axes_style('whitegrid'):
     ax1 = fig.add_subplot(gs[0,0])
     sns.pointplot(data=df,x='encode_phase',y='typicality',hue='condition',
                 palette=cpal,saturation=1,dodge=.4,join=False,ax=ax1)
     ax1.legend_.remove()
     ax1.set_ylabel('Typicality')
-    ax1.set_xlabel('')
+    ax1.set_xlabel('Encoding temporal context')
     ax1.set_xticklabels(['Pre','Conditioning','Post'],ha='center')
     ax1.set_title('')
     ax1.set_ylim(1,7)
@@ -276,7 +276,7 @@ with sns.axes_style('whitegrid'):
     # paired_barplot_annotate_brackets('*',2,(upper[2],upper[5]),ax.get_ylim(),barh=.025)
     ax1.yaxis.set_major_locator(FixedLocator([1,3,5,7]))
     ax1.yaxis.set_minor_locator(FixedLocator([2,4,6]))
-    sns.despine(ax=ax1,left=True,bottom=False,top=False)
+    # sns.despine(ax=ax1,left=True,bottom=False,top=False)
     ax1.grid(True,'both','y')
 
 for c in ax1.collections: c.set_linewidth(rcParams['lines.linewidth']*.3)
@@ -307,7 +307,7 @@ for phase in phases:
 df = pd.concat(df.values())
 
 # fig, ax = plt.subplots(1,figsize=mm2inch(100,100*.6),sharey=False)
-ax2 = fig.add_subplot(gs[0,1])
+ax2 = fig.add_subplot(gs[1,0])
 sns.violinplot(data=df,x='phase',y='beta',hue='condition',cut=0,saturation=1,
                 inner='mean_ci',palette=cpal,ax=ax2,scale='count',width=.6,zorder=1,edgecolor='white')
 
@@ -338,19 +338,37 @@ for xtick, phase in enumerate(phases):
         ax2.text(xtick+cpos[c],pvals.loc[(phase,con),'topval'],pvals.loc[(phase,con),'star'],ha='center',va='bottom')
 ax2.set_xticklabels(['Pre','Conditioning','Post'])
 ax2.yaxis.set_major_locator(MultipleLocator(.2))
-ax2.set_xlabel('')
-fig.text(0,.925,'A',fontsize=16)
-fig.text(.5,.925,'B',fontsize=16)
-fig.tight_layout()
-# legend_elements = [Patch(facecolor=cpal[0],edgecolor=None,label='CS+'),
-#                    Patch(facecolor=cpal[1],edgecolor=None,label='CS-')]
-# ax2.legend(handles=legend_elements,frameon=False,loc='upper left',bbox_to_anchor=(0,1.15))
+ax2.set_xlabel('Encoding temporal context')
 #CS+ vs. CS-
 for phase in phases:
     diff = betas[phase]['CS+'] - betas[phase]['CS-'] 
     diffp = [(1 - np.mean(diff > 0)) * 2, (1 - np.mean(diff < 0)) * 2] 
     diffp = np.min(diffp)
     print(phase,diffp)
+
+#typicality by source memory
+df = pd.read_csv('../cleaned_full_sm.csv'
+        ).rename(columns={'trial_type':'condition'}
+        ).groupby(['source_memory','subject']
+        ).mean(
+        ).reset_index()
+
+with sns.axes_style('whitegrid'):
+    ax3 = fig.add_subplot(gs[2,0])
+    sns.pointplot(data=df,x='source_memory',y='typicality',ax=ax3,palette=spal,order=phases,saturation=1,zorder=2,join=False)
+    ax3.set_xticklabels(['Pre','Conditioning','Post'])
+    ax3.set_ylabel('Typicality')
+    ax3.set_xlabel('Temporal context source memory response')
+    ax3.yaxis.set_major_locator(MultipleLocator(.4))
+    ax3.yaxis.set_minor_locator(MultipleLocator(.2))
+    ax3.grid(True,'both','y')
+    ax3.set_ylim((3.8,4.9))
+
+fig.text(0.05,.99,'A',fontsize=16)
+fig.text(0.05,.66,'B',fontsize=16)
+fig.text(0.05,.33,'C',fontsize=16)
+fig.tight_layout()
+
 
 
 '''Typicality within subject beta curves'''
@@ -383,10 +401,8 @@ plt.tight_layout()
 
 
 '''Final figure, multiple logistic regression'''
-df = pd.read_csv('../multiple_logreg.csv')
-pdf = pd.read_csv('../multiple_logreg_phase.csv')
+# df = pd.read_csv('../multiple_logreg.csv')
 # fig, (ax1, ax2) = plt.subplots(1,2,figsize=mm2inch(200,200*.6),sharey=True)
-fig, ax2 = plt.subplots(1,figsize=mm2inch(100,100*.8),sharey=True)
 # x_order = ['encode_phase','condition','source_memory','typicality']
 # sns.swarmplot(data=df,x='feature',y='beta',color=wes_palettes['Royal1'][0],ax=ax1,zorder=1,alpha=.75,order=x_order)
 # sns.pointplot(data=df,x='feature',y='beta',color='black',ax=ax1,zorder=10000,order=x_order)
@@ -397,27 +413,29 @@ fig, ax2 = plt.subplots(1,figsize=mm2inch(100,100*.8),sharey=True)
 # ax1.set_xlabel('')
 # ax1.set_title('All phases')
 
-sns.swarmplot(data=pdf.query('phase == "baseline"'),x='feature',y='beta',color=wes_palettes['Royal1'][0],ax=ax2,zorder=1,alpha=.75)
-sns.pointplot(data=pdf.query('phase == "baseline"'),x='feature',y='beta',color='black',ax=ax2,zorder=10000)
-ax2.collections[3].set_linewidth(rcParams['lines.linewidth']*.3)
-ax2.hlines(0,ax2.get_xlim()[0],ax2.get_xlim()[1],linestyle=':',color='black',zorder=0)
-ax2.set_xticklabels(['CS type','Conditioning source\ncontext misattributions','Typicality'],ha='center')
-ax2.set_ylabel('')
+pdf = pd.read_csv('../multiple_logreg_phase.csv')
+fig, ax2 = plt.subplots(1,figsize=mm2inch(100,100*.8),sharey=True)
+sns.swarmplot(data=pdf.query('phase == "baseline"'),x='feature',y='beta',color=wes_palettes['Royal1'][0],ax=ax2,zorder=1,alpha=.75,order=['acq_resp','condition','typicality','ext_resp'])
+sns.pointplot(data=pdf.query('phase == "baseline"'),x='feature',y='beta',color='black',ax=ax2,zorder=10000,order=['acq_resp','condition','typicality','ext_resp'])
+ax2.collections[4].set_linewidth(rcParams['lines.linewidth']*.3)
+ax2.hlines(0,*ax2.get_xlim(),linestyle=':',color='black',zorder=0)
+ax2.set_xticklabels(['Conditioning\nmisattributions','CS type','Typicality','Post-\nconditioning\nmisattributions'],ha='center')
+ax2.set_ylabel('Predictiveness of recognition memory')
 ax2.set_xlabel('')
 ax2.set_title('Pre-conditioning')
 
-y = pdf.beta[pdf.phase == 'baseline'].max() + .2
-barx = [0,0,1-.01,1-.01]
-bary = [y,y+.1,y+.1,y]
-ax2.plot(barx, bary, c='black')
-mid = (.5, y+.01)
-ax2.text(*mid,'*',ha='center',va='bottom')
+# y = pdf.beta[pdf.phase == 'baseline'].max() + .2
+# barx = [0,0,1-.01,1-.01]
+# bary = [y,y+.1,y+.1,y]
+# ax2.plot(barx, bary, c='black')
+# mid = (.5, y+.01)
+# ax2.text(*mid,'*',ha='center',va='bottom')
 
-barx = [2,2,1+.01,1+.01]
-bary = [y,y+.1,y+.1,y]
-ax2.plot(barx, bary, c='black')
-mid = (1.5, y+.01)
-ax2.text(*mid,'**',ha='center',va='bottom')
+# barx = [2,2,1+.01,1+.01]
+# bary = [y,y+.1,y+.1,y]
+# ax2.plot(barx, bary, c='black')
+# mid = (1.5, y+.01)
+# ax2.text(*mid,'**',ha='center',va='bottom')
 
 plt.tight_layout()
 

@@ -357,65 +357,32 @@ pg.ttest(betas.loc['CS+','beta'],betas.loc['CS-','beta'],paired=True)
 '''multiple logistic'''
 df = pd.read_csv('../cleaned_full_sm.csv'
         ).rename(columns={'trial_type':'condition'}
-        ).set_index(['subject']
+        ).set_index(['encode_phase','subject']
         ).sort_index()
-# df.source_memory = df.source_memory.apply(lambda x: phase_convert[x])
 df = df.drop(columns=['stimulus','trial_number','group','recognition_memory'])
-# df = pd.get_dummies(df,columns=['encode_phase','source_memory','condition'])
 df.condition = df.condition.apply(lambda x: 1 if x == 'CS+' else 0)
-df.source_memory = df.source_memory.apply(lambda x: 1 if x == 'acquisition' else 0)
-# recode_phase = {'baseline':0,'acquisition':1,'extinction':-1}
-# df.encode_phase = df.encode_phase.apply(lambda x: recode_phase[x])
-# df.source_memory = df.source_memory.apply(lambda x: recode_phase[x])
+df['acq_resp'] = df.source_memory.apply(lambda x: 1 if x == 'acquisition' else 0)
+df['ext_resp'] = df.source_memory.apply(lambda x: 1 if x == 'extinction' else 0)
+# df['pre_resp'] = df.source_memory.apply(lambda x: 1 if x == 'baseline' else 0)
+#df.source_memory = df.source_memory.apply(lambda x: 1 if x == 'acquisition' else 0) #this was in the preprint
 
-# betas = pd.DataFrame(columns=['typicality','condition','encode_phase','source_memory','intercept'],index=pd.MultiIndex.from_product([xcl_sub_args],names=['subject']))
-# columns = ['encode_phase_acquisition','encode_phase_baseline','encode_phase_extinction','source_memory_acquisition','source_memory_baseline','source_memory_extinction','condition_CS+','condition_CS-','typicality']
-# betas = pd.DataFrame(columns=columns,index=pd.MultiIndex.from_product([xcl_sub_args],names=['subject']))
-
-#mean center/zscore typicality?
-#condition = ['CS+','CS-']: {'CS-':0,'CS+':1}
-#encode_phase = ['pre','conditioning','post']: {-1,0,1}
-#source_memory = {-1,0,1}
-betas = {}
-#all phases
-logreg = LogisticRegression(solver='lbfgs')
-for sub in xcl_sub_args:
-    df.loc[sub,'typicality'] -= df.loc[sub,'typicality'].mean()
-    df.loc[sub,'typicality'] /= df.loc[sub,'typicality'].std()
-    X = df.loc[sub,columns].values
-    y = df.loc[sub,'hc_acc'].values
-    logreg.fit(X,y)
-    betas[sub] = logreg.coef_[0]
-    # betas.loc[sub,'intercept'] = logreg.intercept_
-betas = pd.DataFrame.from_dict(betas,orient='index')
-betas = betas.astype(float)
-betas = betas.reset_index().melt(id_vars='index',value_vars=range(9),var_name='feature',value_name='beta')
-betas = betas.set_index(['feature','index']).sort_index()
-
-# pg.wilcoxon(betas.loc['source_memory','beta'],betas.loc['typicality','beta'])
-
-# betas.to_csv('../multiple_logreg.csv')
-
-sns.pointplot(data=betas.reset_index(),x='feature',y='beta')
-
-df = df.reset_index().set_index(['encode_phase','subject']).sort_index()
 #one phase
 beta_df = {}
 # for phase in phases:
 for phase in ['baseline']:
     pdf = df.loc[phase].copy()
 
-    betas = pd.DataFrame(columns=['typicality','condition','source_memory','intercept'],index=pd.MultiIndex.from_product([xcl_sub_args],names=['subject']))
+    betas = pd.DataFrame(columns=['typicality','condition','acq_resp','ext_resp','intercept'],index=pd.MultiIndex.from_product([xcl_sub_args],names=['subject']))
     logreg = LogisticRegression(solver='lbfgs')
     for sub in xcl_sub_args:
         pdf.loc[sub,'typicality'] = zscore(pdf.loc[sub,'typicality'])
-        X = pdf.loc[sub,['typicality','condition','source_memory']].values
+        X = pdf.loc[sub,['typicality','condition','acq_resp','ext_resp']].values
         y = pdf.loc[sub,'hc_acc'].values
         logreg.fit(X,y)
-        betas.loc[sub,('typicality','condition','source_memory')] = logreg.coef_[0]
+        betas.loc[sub,('typicality','condition','acq_resp','ext_resp')] = logreg.coef_[0]
         betas.loc[sub,'intercept'] = logreg.intercept_
     betas = betas.astype(float)
-    betas = betas.reset_index().melt(id_vars='subject',value_vars=['condition','source_memory','typicality'],var_name='feature',value_name='beta')
+    betas = betas.reset_index().melt(id_vars='subject',value_vars=['condition','typicality','acq_resp','ext_resp'],var_name='feature',value_name='beta')
 
     fig, ax = plt.subplots()
     sns.swarmplot(data=betas,x='feature',y='beta',zorder=1)
@@ -424,13 +391,59 @@ for phase in ['baseline']:
     betas['phase'] = phase
     beta_df[phase] = betas
     betas = betas.set_index(['feature','subject']).sort_index()
-    print(pg.ttest(betas.loc['source_memory','beta'],betas.loc['typicality','beta'],paired=True))
-    print(pg.ttest(betas.loc['source_memory','beta'],betas.loc['condition','beta'],paired=True))
+    print(pg.ttest(betas.loc['acq_resp','beta'],betas.loc['typicality','beta'],paired=True))
+    print(pg.ttest(betas.loc['acq_resp','beta'],betas.loc['condition','beta'],paired=True))
     print(pg.ttest(betas.loc['condition','beta'],betas.loc['typicality','beta'],paired=True))
 
+    print(pg.ttest(betas.loc['acq_resp','beta'],betas.loc['ext_resp','beta'],paired=True))
+    print(pg.ttest(betas.loc['ext_resp','beta'],betas.loc['condition','beta'],paired=True))
+    print(pg.ttest(betas.loc['ext_resp','beta'],betas.loc['typicality','beta'],paired=True))
+
+
     print(pg.ttest(betas.loc['condition','beta'],0))
-    print(pg.ttest(betas.loc['source_memory','beta'],0))
+    print(pg.ttest(betas.loc['acq_resp','beta'],0))
+    print(pg.ttest(betas.loc['ext_resp','beta'],0))
     print(pg.ttest(betas.loc['typicality','beta'],0))
 
-out = pd.concat(beta_df.values())
-out.to_csv('../multiple_logreg_phase.csv',index=False)
+beta_df['baseline'].to_csv('../multiple_logreg_phase.csv',index=False)
+
+
+'''SCR for a reviewer'''
+df = pd.read_csv('../fc_scr_comp.csv').set_index(['subject']).loc[xcl_sub_args].reset_index()
+
+acq = df.copy()
+acq['phase'] = acq.quarter.apply(lambda x: 'acquisition' if x < 3 else 'not')
+acq = acq.groupby(['phase','subject']).mean()
+
+print(pg.ttest(acq.loc[('acquisition'),'scr'],0))
+
+df = df.set_index(['quarter','subject']).sort_index()
+
+print(pg.ttest(acq.loc[('acquisition'),'scr'], df.loc[(4),'scr'], paired=True))
+
+'''expectancy for a reviewer'''
+acq = pd.concat([bids_meta(sub).behav['acquisition'] for sub in xcl_sub_args])
+ext = pd.concat([bids_meta(sub).behav['extinction'] for sub in xcl_sub_args])
+
+acq.response = acq.response.apply(lambda x: 1 if x == 1 else 0)
+acq = acq.groupby(['trial_type','subject']).mean()['response'].sort_index()
+acq = acq.loc['CS+'] - acq.loc['CS-']
+
+ext.response = ext.response.apply(lambda x: 1 if x == 1 else 0)
+ext = ext.reset_index().rename(columns={'index':'trial'})
+ext['half'] = ext.trial.apply(lambda x: 1 if x < 12 else 2)
+
+ext = ext.groupby(['trial_type','half','subject']).mean()['response']
+ext = ext.loc['CS+'] - ext.loc['CS-']
+
+print(pg.ttest(acq,0))
+print(pg.ttest(acq,ext.loc[2],paired=True))
+
+
+'''TYPICALITY WITH THE SOURCE MEMORY RESPONSES'''
+df = pd.read_csv('../cleaned_full_sm.csv'
+        ).rename(columns={'trial_type':'condition'}
+        ).groupby(['condition','source_memory','subject']
+        ).mean(
+        ).reset_index()
+#jk its in R bc there are missing cells
